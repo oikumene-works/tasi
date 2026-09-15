@@ -171,10 +171,11 @@ Java production sources are under `src/gde/device/tasi/`.
 ## Build and tests
 
 Use JDK 21 (compile target Java 19), Ant and the matching local source release.
-No dependency downloads or physical port access are part of these tests.
+No dependency downloads or physical port access are part of these tests. When
+the ignored `local/deps/dataexplorer-4.0.7` tree is present, the helper finds it
+automatically.
 
 ```sh
-export DATAEXPLORER_ROOT=/path/to/dataexplorer-4.0.7
 export JAVA_HOME=/path/to/jdk-21
 
 scripts/test.sh package
@@ -182,13 +183,16 @@ scripts/test.sh protocol
 scripts/test.sh all
 ```
 
-`scripts/test.sh all` uses `xvfb-run` from `PATH`; set `XVFB_RUN_BIN` to an
-absolute executable path when it is unpacked elsewhere. A sandbox may need
-permission to create its local display sockets. Tests use an isolated Java user
-home and test application, not an installed DataExplorer profile.
+Set `DATAEXPLORER_ROOT=/path/to/dataexplorer-4.0.7` to override the local tree.
+`scripts/test.sh all` likewise prefers the ignored
+`local/tools/xvfb/usr/bin/xvfb-run`, then falls back to `xvfb-run` from `PATH`;
+set `XVFB_RUN_BIN` to override both. A sandbox may need permission to create its
+local display sockets. Tests use an isolated Java user home and test
+application, not an installed DataExplorer profile.
 
-The helper reuses `DATAEXPLORER_ROOT/DataExplorer/build/DataExplorer.jar` when
-available. Otherwise it builds `build/core/DataExplorer.jar` once. Set
+The helper reuses `DataExplorer/build/DataExplorer.jar` below the selected
+dependency root when available. Otherwise it builds `build/core/DataExplorer.jar`
+once. Set
 `DATAEXPLORER_JAR=/path/to/DataExplorer.jar` to use another matching core JAR.
 
 If no core JAR exists, run `ant prepare-core` first. From a separate module copy,

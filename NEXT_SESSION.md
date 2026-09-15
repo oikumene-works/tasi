@@ -28,8 +28,8 @@ absolute recording time is unknown and epoch zero is only a placeholder.
 
 ## Build and validation
 
-Point `DATAEXPLORER_ROOT` to an official DataExplorer 4.0.7 source tree and use
-JDK 21. The helper supports:
+Use JDK 21. The helper automatically uses the ignored
+`local/deps/dataexplorer-4.0.7` tree when present and supports:
 
 ```sh
 scripts/test.sh package
@@ -37,8 +37,9 @@ scripts/test.sh protocol
 scripts/test.sh all
 ```
 
-The full test requires Xvfb. If `xvfb-run` is not in `PATH`, set
-`XVFB_RUN_BIN=/absolute/path/to/xvfb-run`.
+The full test requires Xvfb. The ignored `local/tools/xvfb` copy is detected
+automatically. Set `DATAEXPLORER_ROOT` or `XVFB_RUN_BIN` only to override these
+local defaults.
 
 ## Possible next slice
 
