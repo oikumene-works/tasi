@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.log
+*.tmp
+.DS_Store
+
+# Local captures may contain large or experiment-specific data.
+*.transcript.jsonl
+*.frames.csv
+*.meta.json

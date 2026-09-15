@@ -1,0 +1,49 @@
+{
+  "schema": "oikumene-works.tasi.ta612c.protocol-facts.v1",
+  "updated": "2026-09-15",
+  "device_under_test": {
+    "model": 612,
+    "commercial_model": "TA612C",
+    "firmware": "3.50",
+    "usb_adapter": "QinHeng CH340",
+    "usb_id": "1a86:7523"
+  },
+  "transport": {
+    "type": "serial_over_usb",
+    "baud": 9600,
+    "format": "8N1"
+  },
+  "response_frame": {
+    "header_hex": "55 AA",
+    "total_length_rule": "frame[3] + 2",
+    "checksum_rule": "sum(frame[:-1]) & 0xff == frame[-1]"
+  },
+  "sample": {
+    "channels": 4,
+    "payload_bytes": 8,
+    "bytes_per_channel": 2,
+    "byte_order": "little_endian",
+    "scale_celsius": 0.1,
+    "current_decode": "signed_int16",
+    "signedness_confidence": "strong_inference_not_yet_below_zero_fixture_confirmed",
+    "observed_open_probe_celsius": 2800.0
+  },
+  "rec": {
+    "per_sample_timestamp_observed": false,
+    "session_boundary_marker_observed": false,
+    "current_time_axis": "sample_index * user_supplied_interval"
+  },
+  "sources": [
+    "physical TA612C firmware 3.50 captures",
+    "TASI TA Series Communication Protocols, revision dated 2022-07-25",
+    "TASI EnvironmentalTester 1.21 static analysis",
+    "TASI EnvironmentalTester 1.22 static analysis",
+    "Artisan TA612C implementation"
+  ],
+  "safety": {
+    "potentially_destructive_hex": "AA 55 04 03 06",
+    "vendor_software_label": "DATA_ERASE",
+    "ta612c_applicability": "unconfirmed",
+    "policy": "do_not_send_experimentally"
+  }
+}
