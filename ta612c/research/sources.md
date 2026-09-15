@@ -9,8 +9,14 @@ Physically verified in the current project:
 - device info request (`0x00`)
 - live data request (`0x01`)
 - REC download request (`0x02`)
+- one explicitly authorized send of the `0x04` common-layer `DATA_ERASE`
+  candidate; it returned no bytes and the immediate REC readback was unchanged
 - HI alarm activation and front-panel behaviour
 - open-probe value of 2800.0 °C
+
+The `0x04` observation is a bounded no-effect result, not confirmation that the
+command is safe or that it can erase TA612C memory. See
+[`data-erase-trial-2026-09-15.md`](data-erase-trial-2026-09-15.md).
 
 ## TASI protocol document
 

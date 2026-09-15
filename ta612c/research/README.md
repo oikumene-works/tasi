@@ -10,3 +10,7 @@ Use these notes to answer questions such as:
 - Which uncertainties are still open?
 
 The consolidated handoff for other developers and coding agents is [`TA612C_PROTOCOL_RESEARCH_HANDOFF_2026-09-15.md`](TA612C_PROTOCOL_RESEARCH_HANDOFF_2026-09-15.md).
+
+The controlled single-attempt test of the vendor common-layer `DATA_ERASE`
+candidate is documented in
+[`data-erase-trial-2026-09-15.md`](data-erase-trial-2026-09-15.md).

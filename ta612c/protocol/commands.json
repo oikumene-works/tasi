@@ -52,11 +52,11 @@
       "code": "0x04",
       "tx_hex": "AA 55 04 03 06",
       "name": "DATA_ERASE",
-      "status": "environmentaltester_common_serial_layer",
-      "ta612c_fw350": "applicability_unconfirmed",
+      "status": "environmentaltester_common_serial_layer_and_single_controlled_physical_trial",
+      "ta612c_fw350": "single_send_no_response_immediate_rec_readback_unchanged",
       "implemented_in_logger_v3_2": false,
       "risk": "potentially_destructive_do_not_send",
-      "notes": "EnvironmentalTester 1.22 labels this TX path DATA_ERASE. Static analysis did not find the TA612C interface invoking it. Earlier vendor protocol documentation associates 0x04 function-setting use with another model family. Do not probe this command on a TA612C without an explicit, controlled erase test."
+      "notes": "EnvironmentalTester 1.22 labels this TX path DATA_ERASE. Static analysis did not find the TA612C interface invoking it. In one explicitly authorized 2026-09-15 trial, a single bare command returned no bytes and the immediate nine-group REC readback was byte-for-byte unchanged. This does not prove safety or general non-applicability. Do not include it in normal tools or probe variants by guesswork."
     }
   ]
 }

@@ -43,7 +43,15 @@
   "safety": {
     "potentially_destructive_hex": "AA 55 04 03 06",
     "vendor_software_label": "DATA_ERASE",
-    "ta612c_applicability": "unconfirmed",
-    "policy": "do_not_send_experimentally"
+    "ta612c_applicability": "single_fw350_trial_had_no_observable_rec_effect_general_applicability_unresolved",
+    "single_controlled_trial_2026_09_15": {
+      "send_count": 1,
+      "response_bytes": 0,
+      "pre_and_immediate_post_rec_bytes": 82,
+      "pre_and_immediate_post_sample_groups": 9,
+      "pre_and_immediate_post_sha256": "aaef715625c41298ddbbb5f3e27e914cc8d266531a6a55a04f3a324f7be62422",
+      "interpretation": "bare command did not erase REC under tested conditions; no safety or general no-op claim"
+    },
+    "policy": "do_not_include_in_normal_tools_or_repeat_without_new_explicit_controlled_scope"
   }
 }

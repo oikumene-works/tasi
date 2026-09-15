@@ -117,6 +117,20 @@ Important differences/findings:
 
 Future dynamic test: change EnvironmentalTester's Alarm field while communication logging is enabled and inspect TX traffic. If no new TX frame appears, that strongly confirms the Alarm UI remains PC-side in 1.22.
 
+### Controlled `DATA_ERASE` candidate trial
+
+After explicit authorization and a validated nine-group REC backup, the bare
+`AA 55 04 03 06` command was sent exactly once to the physical firmware 3.50
+TA612C. It returned no bytes. One immediate read-only REC request returned the
+same two frames and 82 bytes as before the command; the complete pre/post streams
+were byte-for-byte identical with SHA-256
+`aaef715625c41298ddbbb5f3e27e914cc8d266531a6a55a04f3a324f7be62422`.
+
+This is a bounded no-effect observation, not evidence that `0x04` is safe on
+other firmware or in another device state. Do not put it into normal tooling or
+guess variants. See `data-erase-trial-2026-09-15.md` for the procedure and
+interpretation.
+
 ## 8. Artisan
 
 Artisan provides an independent live implementation:
