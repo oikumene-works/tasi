@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceProperties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DeviceProperties_V50.xsd">
+    <Device>
+        <name implementation="gde.device.tasi.TA612C">TA612C</name>
+        <manufacturer>TASI</manufacturer>
+        <manufacturerURL/>
+        <group>logger</group>
+        <image>NoDevicePicture.jpg</image>
+        <usage>false</usage>
+    </Device>
+    <SerialPort>
+        <port>-</port>
+        <baudeRate>9600</baudeRate>
+        <dataBits>DATABITS_8</dataBits>
+        <stopBits>STOPBITS_1</stopBits>
+        <parity>PARITY_NONE</parity>
+        <flowControlMode>FLOWCONTROL_NONE</flowControlMode>
+        <!-- Matches the local pyserial logger's defaults; verify on hardware. -->
+        <isRTS>true</isRTS>
+        <isDTR>true</isDTR>
+        <TimeOut>
+            <ReadTimeOut>700</ReadTimeOut>
+            <ReadStableIndex>5</ReadStableIndex>
+            <WriteCharDelayTime>0</WriteCharDelayTime>
+            <WriteDelayTime>0</WriteDelayTime>
+        </TimeOut>
+    </SerialPort>
+    <TimeBase>
+        <name>time</name>
+        <symbol>t</symbol>
+        <unit>msec</unit>
+        <timeStep>-1.0</timeStep>
+    </TimeBase>
+    <DataBlock>
+        <format inputType="SERIAL_IO" formatType="BYTE" size="13"/>
+    </DataBlock>
+    <Channels>
+        <Channel type="TYPE_OUTLET" name="Temperatures">
+            <Measurement>
+                <name>T1</name><symbol>T</symbol><unit>°C</unit><active>true</active>
+                <statistics min="true" max="true" avg="true" sigma="false"/>
+                <property name="factor" type="Double" value="1.0"/>
+            </Measurement>
+            <Measurement>
+                <name>T2</name><symbol>T</symbol><unit>°C</unit><active>true</active>
+                <statistics min="true" max="true" avg="true" sigma="false"/>
+                <property name="factor" type="Double" value="1.0"/>
+                <property name="scale_sync_ref_ordinal" type="Integer" value="0"/>
+            </Measurement>
+            <Measurement>
+                <name>T3</name><symbol>T</symbol><unit>°C</unit><active>true</active>
+                <statistics min="true" max="true" avg="true" sigma="false"/>
+                <property name="factor" type="Double" value="1.0"/>
+                <property name="scale_sync_ref_ordinal" type="Integer" value="0"/>
+            </Measurement>
+            <Measurement>
+                <name>T4</name><symbol>T</symbol><unit>°C</unit><active>true</active>
+                <statistics min="true" max="true" avg="true" sigma="false"/>
+                <property name="factor" type="Double" value="1.0"/>
+                <property name="scale_sync_ref_ordinal" type="Integer" value="0"/>
+            </Measurement>
+        </Channel>
+    </Channels>
+    <Desktop>
+        <property name="table_tab" value="true"/>
+        <property name="digital_tab" value="true"/>
+        <property name="analog_tab" value="false"/>
+        <property name="voltage_per_cell_tab" value="false"/>
+        <property name="utility_garphics_tab" value="false"/>
+        <property name="utility_device_tab" value="false"/>
+    </Desktop>
+</DeviceProperties>

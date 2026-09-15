@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TA612C" default="test" basedir=".">
+    <property name="dataexplorer.root" location=".."/>
+    <property name="build.dir" location="build"/>
+    <property name="version.num" value="4.0.7"/>
+    <condition property="build.os.shortname" value="GNULinux">
+        <and><os name="Linux"/><os arch="amd64"/></and>
+    </condition>
+    <condition property="build.os.shortname" value="Linux_ARM">
+        <and><os name="Linux"/><os arch="aarch64"/></and>
+    </condition>
+    <condition property="dataexplorer.jar" value="${dataexplorer.root}/DataExplorer/build/DataExplorer.jar">
+        <available file="${dataexplorer.root}/DataExplorer/build/DataExplorer.jar"/>
+    </condition>
+    <property name="dataexplorer.jar" location="${build.dir}/core/DataExplorer.jar"/>
+    <property name="lib.dir" location="${dataexplorer.root}/build/lib"/>
+    <path id="libraries">
+        <fileset dir="${lib.dir}" includes="gson.jar,jSerialComm.jar,jaxb-api.jar,jaxb-core.jar,jaxb-runtime.jar,istack-commons-runtime.jar,activation.jar,usb4java.jar,usb-api.jar,usb4java-javax.jar,commons-lang3.jar,jtouchbar.jar,jtouchbar-swt.jar,juniversalchardet.jar"/>
+        <pathelement location="${lib.dir}/${build.os.shortname}/${sun.arch.data.model}/swt.jar"/>
+        <pathelement location="${lib.dir}/${build.os.shortname}/${sun.arch.data.model}/libusb4java.jar"/>
+    </path>
+    <path id="compile.classpath">
+        <pathelement location="${dataexplorer.jar}"/>
+        <path refid="libraries"/>
+    </path>
+    <target name="init">
+        <fail message="Use JDK 19 or newer (JDK 21 is recommended).">
+            <condition><not><javaversion atleast="19"/></not></condition>
+        </fail>
+        <fail message="Set -Ddataexplorer.root to the DataExplorer 4.0.7 source directory.">
+            <condition><not><available file="${dataexplorer.root}/DataExplorer/src/resource/DeviceProperties_V50.xsd"/></not></condition>
+        </fail>
+        <fail message="Set -Dbuild.os.shortname to the matching build/lib platform directory.">
+            <condition><not><available file="${lib.dir}/${build.os.shortname}/${sun.arch.data.model}/swt.jar"/></not></condition>
+        </fail>
+        <mkdir dir="${build.dir}"/>
+    </target>
+    <!-- Optional bootstrap: all output stays in this module, including the core manifest. -->
+    <target name="prepare-core" depends="init" description="Build a local core JAR without modifying DataExplorer sources">
+        <mkdir dir="${build.dir}/core/classes"/>
+        <javac srcdir="${dataexplorer.root}/DataExplorer/src" destdir="${build.dir}/core/classes"
+               classpathref="libraries" release="19" encoding="UTF-8" debug="true" includeantruntime="false">
+            <compilerarg value="-XDignore.symbol.file"/>
+        </javac>
+        <jar destfile="${build.dir}/core/DataExplorer.jar">
+            <fileset dir="${build.dir}/core/classes" includes="**/*.class"/>
+            <fileset dir="${dataexplorer.root}/DataExplorer/src"
+                     includes="**/*.properties,**/*.gif,**/*.jpg,**/*.png,**/*.xsd,**/*.html,**/*.css,**/*.xml"/>
+            <manifest><attribute name="Implementation-Version" value="4.0.7"/></manifest>
+        </jar>
+    </target>
+    <target name="compile" depends="init">
+        <fail message="Core JAR missing. Run prepare-core first or set -Ddataexplorer.jar.">
+            <condition><not><available file="${dataexplorer.jar}"/></not></condition>
+        </fail>
+        <mkdir dir="${build.dir}/classes"/>
+        <javac srcdir="src" destdir="${build.dir}/classes" classpathref="compile.classpath"
+               release="19" encoding="UTF-8" debug="true" includeantruntime="false"/>
+        <copy todir="${build.dir}/classes/resource"><fileset dir="src/resource"/></copy>
+    </target>
+    <target name="package" depends="compile" description="Package the standalone device plugin">
+        <jar destfile="${build.dir}/TA612C.jar">
+            <fileset dir="${build.dir}/classes"/>
+            <zipfileset dir="." includes="COPYING" prefix="META-INF"/>
+            <manifest>
+                <attribute name="Implementation-Version" value="${version.num}"/>
+                <attribute name="Bundle-Version" value="${version.num}"/>
+                <attribute name="Bundle-SymbolicName" value="TA612C"/>
+                <attribute name="Bundle-Description" value="TASI TA612C live acquisition and read-only REC download"/>
+                <attribute name="Export-Service" value="TA612C:TASI:SERIAL_IO"/>
+            </manifest>
+        </jar>
+    </target>
+    <target name="test-compile" depends="package">
+        <mkdir dir="${build.dir}/test-classes"/>
+        <mkdir dir="${build.dir}/test-home"/>
+        <mkdir dir="${build.dir}/test-output"/>
+        <mkdir dir="${build.dir}/test-app/devices"/>
+        <copy file="${dataexplorer.jar}" tofile="${build.dir}/test-app/DataExplorer.jar"/>
+        <copy file="${build.dir}/TA612C.jar" todir="${build.dir}/test-app/devices"/>
+        <javac srcdir="test" destdir="${build.dir}/test-classes" release="19" encoding="UTF-8" includeantruntime="false">
+            <classpath><pathelement location="${build.dir}/TA612C.jar"/><path refid="compile.classpath"/></classpath>
+        </javac>
+    </target>
+    <target name="test-protocol" depends="test-compile" description="Protocol and lifecycle tests; no display required">
+        <java classname="gde.device.tasi.TA612CTests" fork="true" failonerror="true" timeout="15000">
+            <classpath><pathelement location="${build.dir}/test-classes"/><pathelement location="${build.dir}/TA612C.jar"/><path refid="compile.classpath"/></classpath>
+        </java>
+    </target>
+    <target name="test-integration" depends="test-compile" description="OSD integration tests; run under a virtual display on a headless host">
+        <java classname="gde.device.tasi.TA612CTests" fork="true" failonerror="true" timeout="60000">
+            <classpath><pathelement location="${build.dir}/test-classes"/><pathelement location="${build.dir}/TA612C.jar"/><pathelement location="${build.dir}/test-app/DataExplorer.jar"/><path refid="libraries"/></classpath>
+            <sysproperty key="user.home" value="${build.dir}/test-home"/>
+            <sysproperty key="java.awt.headless" value="true"/>
+            <arg file="src/resource/TA612C.xml"/>
+            <arg file="${dataexplorer.root}/DataExplorer/src/resource/DeviceProperties_V50.xsd"/>
+            <arg file="${build.dir}/test-output"/>
+            <arg file="${build.dir}/TA612C.jar"/>
+        </java>
+    </target>
+    <target name="test" depends="test-protocol,test-integration" description="Run all tests without an instrument"/>
+    <target name="clean" description="Remove this module's generated files"><delete dir="${build.dir}"/></target>
+</project>
