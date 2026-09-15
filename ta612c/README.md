@@ -19,6 +19,11 @@ The current public work is divided into:
 
 ## Important safety note
 
-EnvironmentalTester 1.22 labels the common serial-layer command `AA 55 04 03 06` as `DATA_ERASE`. Its applicability to the TA612C has not been physically tested and the TA612C UI path does not appear to call it. Treat it as potentially destructive and **do not send it experimentally**.
+EnvironmentalTester 1.22 labels the common serial-layer command
+`AA 55 04 03 06` as `DATA_ERASE`. The TA612C UI path does not appear to call it,
+and one controlled physical send produced no response and left the immediate
+REC readback unchanged. That does not establish safety or general
+non-applicability. Treat it as potentially destructive and **do not send it as
+a discovery probe**.
 
 See [`docs/safety.md`](docs/safety.md).

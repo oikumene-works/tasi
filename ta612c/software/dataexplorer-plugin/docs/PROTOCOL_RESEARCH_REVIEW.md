@@ -28,7 +28,7 @@ capture rather than a speculative implementation change.
 | `AA 55 01 03 03` live data / START | The only live command | Correct command. Preserve the accepted bounded behavior until cadence is resolved. |
 | `AA 55 02 03 04` REC upload | The only REC command | Matches physical, vendor-software and logger evidence. Keep the transfer read-only and single-shot. |
 | `AA 55 03 07 ...` clock sync | Not sent | EnvironmentalTester indicates a 32-bit Unix timestamp rather than BCD, but it writes device state and does not establish REC sample timestamps. Do not add it. |
-| `AA 55 04 03 06` | Not present | EnvironmentalTester 1.22 labels it `DATA_ERASE`. Never use it as a discovery probe. |
+| `AA 55 04 03 06` | Not present | EnvironmentalTester 1.22 labels it `DATA_ERASE`. A single authorized physical send returned no bytes and left immediate REC readback unchanged; that does not establish safety. Keep it out of the plugin. |
 
 The accepted plugin boundary remains deliberately narrower than the set of
 commands found in the vendor software: live may send only `0x01`, and REC may
@@ -115,3 +115,14 @@ The research reinforces the current plugin design:
    publishing captures implicitly, and do not weaken atomic import semantics.
 4. Consider auto-connect only as a user-selected DataExplorer UX feature with
    deterministic device/port selection and no command sent during discovery.
+
+## Later physical `0x04` result
+
+A controlled trial after this source review sent `AA 55 04 03 06` once to the
+firmware 3.50 device. The immediate pre/post REC streams were identical: two
+frames, nine sample groups, 82 bytes and SHA-256
+`aaef715625c41298ddbbb5f3e27e914cc8d266531a6a55a04f3a324f7be62422`.
+This supports no plugin implementation: the command had no observable erase
+effect in the tested state, returned no acknowledgement and remains potentially
+destructive outside that state. The detailed record is
+[`data-erase-trial-2026-09-15.md`](../../../research/data-erase-trial-2026-09-15.md).
