@@ -16,5 +16,5 @@ replace or combine the separate Python logger, protocol model or research
 material elsewhere under `ta612c/`.
 
 The tracked CSV and OSD fixtures originate from physical user measurements.
-They are required regression inputs and must receive an explicit public-release
-review before the integration branch is published.
+They are required regression inputs. Their public release was explicitly
+reviewed and approved before the 2026-09-15 integration-branch push.

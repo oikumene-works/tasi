@@ -164,7 +164,9 @@ through the usual factor, offset and reduction properties.
 | `scripts/test.sh` | Portable package, protocol and full-test entry point |
 | `AGENTS.md` | Durable project boundaries for future Codex tasks |
 | `RELEASE.md` | Accepted baseline, checksums and validation counts |
-| `REMOTE.md` | Remote-repository preparation and publication checklist |
+| `REMOTE.md` | Historical standalone publication checklist |
+| `docs/TROUBLESHOOTING.md` | Reproducible build and repository-integration problems and resolutions |
+| `docs/PROTOCOL_RESEARCH_REVIEW.md` | Impact of EnvironmentalTester and Artisan findings on plugin decisions |
 
 Java production sources are under `src/gde/device/tasi/`.
 
