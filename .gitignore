@@ -1,0 +1,8 @@
+/build/
+/local/
+/dist/
+/.idea/
+/.vscode/
+*.iml
+*.class
+*.log

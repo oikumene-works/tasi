@@ -1,0 +1,5 @@
+* text=auto
+*.osd binary
+*.jar binary
+*.zip binary
+test/fixtures/*.csv binary
