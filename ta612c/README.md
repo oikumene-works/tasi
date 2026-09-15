@@ -10,7 +10,9 @@ The current public work is divided into:
 
 - [`protocol/`](protocol/) — current protocol model and machine-readable facts
 - [`software/logger/`](software/logger/) — self-contained Python logger/downloader
-- [`software/dataexplorer-plugin/`](software/dataexplorer-plugin/) — integration workspace and handoff target
+- [`software/dataexplorer-plugin/`](software/dataexplorer-plugin/) — standalone
+  DataExplorer 4.0.7 plugin with live acquisition, read-only REC import, tests
+  and release notes
 - [`research/`](research/) — source-by-source reverse-engineering notes and uncertainty
 - [`docs/`](docs/) — usage and safety notes
 - [`examples/`](examples/) — future sanitized fixtures and example captures

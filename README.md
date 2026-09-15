@@ -30,4 +30,9 @@ See [`ta612c/`](ta612c/).
 
 ## Licensing
 
-No repository-wide license has been selected yet. Until one is added, normal copyright rules apply. Third-party software and documentation remain under their respective owners' terms.
+No repository-wide license has been selected yet. The DataExplorer plugin under
+`ta612c/software/dataexplorer-plugin/` is separately licensed under
+GPL-3.0-or-later; see its `COPYING` file and source attribution. Until a broader
+license is added, normal copyright rules apply to the other repository material.
+Third-party software and documentation remain under their respective owners'
+terms.

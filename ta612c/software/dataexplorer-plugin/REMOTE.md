@@ -1,7 +1,9 @@
-# Remote repository readiness
+# Historical standalone remote readiness
 
-This repository is prepared for a later GitHub, GitLab or other Git remote. No
-remote is configured and nothing has been published.
+This document records the standalone repository's state before it was imported
+under `ta612c/software/dataexplorer-plugin/`. Its original contents remain in
+the imported history. The commands below apply only to the former standalone
+layout and must not be run from the TASI repository root.
 
 ## Recommended first publication
 
