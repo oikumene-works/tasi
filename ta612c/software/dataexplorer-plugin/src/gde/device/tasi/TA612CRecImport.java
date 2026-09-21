@@ -12,11 +12,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/** REC import plus shared fixed-mask sparse RecordSet support used by REC and live. */
+/**
+ * Prepares REC data without publishing it and maintains the sparse RecordSet
+ * representation shared with live acquisition. Each segment has a fixed probe
+ * presence mask and retains all four physical probe definitions, but stores
+ * points only for present probes. Missing readings never become temperatures.
+ * RecordSet operations belong to the caller's DataExplorer/UI context; this
+ * class performs no transport operations.
+ */
 public final class TA612CRecImport {
+    // Retain the historical REC name: persisted sparse live OSD files use it too.
     public static final String PRESENT = "ta612c_rec_present";
+    /** Utility class: sparse storage has no independent instance state. */
     private TA612CRecImport() { }
 
+    /**
+     * Converts explicit user-entered seconds to exact integral milliseconds,
+     * accepting either decimal separator. Bounds are 1 ms through one day;
+     * non-integral milliseconds are rejected rather than silently rounded.
+     * This value is never read from or written to the meter.
+     */
     public static long parseIntervalMs(String seconds) {
         try {
             long value = new BigDecimal(seconds.trim().replace(',', '.')).movePointRight(3).longValueExact();
@@ -27,6 +42,19 @@ public final class TA612CRecImport {
         }
     }
 
+    /**
+     * Builds all fixed-mask segments before the caller inserts any into a channel.
+     * Elapsed time uses the original zero-based sample index times intervalMs,
+     * preserving offsets across all-open ranges; epoch zero explicitly denotes
+     * an unknown recording date. Empty/all-open input yields no RecordSets and
+     * does not prove empty meter memory. The result's completeness caveat is
+     * copied into every segment's persisted description.
+     *
+     * @param firstNumber number used for the first generated RecordSet name
+     * @throws IllegalArgumentException on invalid interval, OSD time overflow or
+     *         excessive segmentation; no prepared sets have been published
+     * @throws DataInconsitsentException if the core rejects prepared point data
+     */
     public static List<RecordSet> prepare(TA612C device, TA612CRecDownloader.Result result, long intervalMs, int firstNumber)
             throws DataInconsitsentException {
         if (intervalMs < 1 || intervalMs > 86400000) throw new IllegalArgumentException("Invalid REC interval");
@@ -72,6 +100,12 @@ public final class TA612CRecImport {
         return List.copyOf(prepared);
     }
 
+    /**
+     * Configures a nonempty fixed-mask segment before points are appended or an
+     * OSD payload is sized. Stored columns remain in physical T1..T4 order even
+     * if the UI name order changes. Presence is persisted independently of user
+     * visibility; applying a different mask to populated data is not supported.
+     */
     static void configureMask(RecordSet records, int mask) {
         if (records.size() != 4 || mask < 1 || mask > 15) throw new IllegalArgumentException("Invalid REC probe mask");
         List<String> stored = new ArrayList<>();
@@ -103,7 +137,12 @@ public final class TA612CRecImport {
         for (int p = 0; p < 4; ++p) if (p != firstPresent) records.addRecordName(probe(records, p).getName());
     }
 
-    /** Keep sparse graph scales independent of the absent XML master T1. */
+    /**
+     * Gives every sparse segment independent scales, avoiding an absent XML
+     * master T1. The integer -1 survives OSD serialization; an empty integer
+     * property cannot be read by the 4.0.7 loader. All-present sets keep the
+     * normal XML synchronization. Call before using a segment's graph scales.
+     */
     static void configureSparseScaleSync(RecordSet records, int mask) {
         if (mask == 15) return; // Preserve the device XML's normal all-probe scale synchronization.
         for (int p = 0; p < 4; ++p) {
@@ -116,12 +155,20 @@ public final class TA612CRecImport {
         }
     }
 
+    /** Finds a physical zero-based probe ordinal regardless of UI name order. */
     static Record probe(RecordSet records, int ordinal) {
         for (Record record : records.getValues()) if (record.getOrdinal() == ordinal) return record;
         throw new IllegalArgumentException("TA612C probe ordinal missing: " + ordinal);
     }
 
-    /** Cross-check before the core sizes the OSD payload. Do not infer missing probes from visibility. */
+    /**
+     * Restores explicit storage presence before the core sizes a lazy OSD payload.
+     * Resolves properties by saved record name to preserve physical probe identity
+     * despite UI reordering, and returns names in incoming property order for the
+     * core loader. No markers means a legacy four-column file; partial, duplicate
+     * per-record or malformed markers are rejected. Visibility is never evidence
+     * of whether a measurement column exists on disk.
+     */
     static String[] restoreMask(String[] properties, RecordSet records) {
         if (properties.length != 4 || records.size() != 4) throw new IllegalArgumentException("TA612C OSD requires four probe definitions");
         int mask = 0, markers = 0;
@@ -150,14 +197,20 @@ public final class TA612CRecImport {
         return recordKeys;
     }
 
+    /** Only an explicit false marker denotes absence; legacy records lack it. */
     static boolean isAbsent(Record record) {
         return record.getProperty(PRESENT) != null && "false".equals(record.getProperty(PRESENT).getValue());
     }
+    /** Formats a presence mask as physical names such as T2+T4 for provenance. */
     static String probeNames(int mask) {
         List<String> names = new ArrayList<>();
         for (int p = 0; p < 4; ++p) if ((mask & (1 << p)) != 0) names.add("T" + (p + 1));
         return String.join("+", names);
     }
+    /**
+     * Lists inclusive, zero-based all-open sample ranges for every segment's
+     * description. These groups create no points but still occupy inferred time.
+     */
     private static String allAbsentRanges(List<TA612CRecDecoder.Sample> samples) {
         List<String> ranges = new ArrayList<>();
         for (int i = 0; i < samples.size(); ++i) if (samples.get(i).validMask() == 0) {

@@ -5,17 +5,35 @@ import gde.exception.TimeOutException;
 import java.io.IOException;
 import java.util.List;
 
-/** Bounded live acquisition; the transport and listener also allow device-free tests. */
+/**
+ * Owns a live acquisition's connect/request/read/close lifecycle off the SWT
+ * thread. Time is host receipt time, not device time. The existing live policy
+ * permits a bounded number of repeated live requests after silence; this is
+ * distinct from REC, which never retries a download automatically. Transport
+ * and listener seams allow deterministic device-free lifecycle tests.
+ */
 public final class TA612CGathererThread extends Thread {
+    /** Serial operations used by this worker; close must tolerate failed opens. */
     public interface Transport {
+        /** Acquires exclusive ownership and opens the configured connection. */
         void connect() throws Exception;
+        /** Sends the live request, initially or for a bounded silence restart. */
         void startLive() throws IOException;
+        /** Returns decoded samples; an empty list or timeout gives no new sample. */
         List<TA612CFrameDecoder.Sample> readSamples() throws IOException, TimeOutException;
+        /** Closes the owned transport before the terminal callback is delivered. */
         void close();
     }
 
+    /** Worker-thread callbacks; UI implementations must marshal SWT work. */
     public interface Listener {
+        /**
+         * Receives every valid frame, including all-open frames. Elapsed time is
+         * monotonic milliseconds from the first decoded frame; its wall-clock
+         * epoch is shared by all subsequent probe-availability segments.
+         */
         void onSample(TA612CFrameDecoder.Sample sample, double elapsedMs, long firstSampleEpochMs);
+        /** Reports termination after attempted cleanup, including close failures. */
         void onStopped(String message, Exception failure);
     }
 
@@ -25,11 +43,12 @@ public final class TA612CGathererThread extends Thread {
     private final int maxRestarts;
     private volatile boolean stopRequested;
 
+    /** Configures the accepted live policy: 1.5 s silence and three restarts. */
     public TA612CGathererThread(Transport transport, Listener listener) {
         this(transport, listener, 1500, 3);
     }
 
-    // Shorter bounds are used only by transport lifecycle tests.
+    /** Injects silence/restart bounds for tests without changing the wire command. */
     TA612CGathererThread(Transport transport, Listener listener, long silenceMs, int maxRestarts) {
         super("TA612C live acquisition");
         this.transport = transport;
@@ -38,6 +57,7 @@ public final class TA612CGathererThread extends Thread {
         this.maxRestarts = maxRestarts;
     }
 
+    /** Requests cooperative cancellation and wakes sleeps; the worker owns close. */
     public void requestStop() {
         stopRequested = true;
         interrupt();
@@ -45,6 +65,12 @@ public final class TA612CGathererThread extends Thread {
 
     public boolean isStopRequested() { return stopRequested; }
 
+    /**
+     * Reads until stopped or failed, retaining data already delivered to the
+     * listener. Any valid sample resets the silence-restart count, even when
+     * all probes are open. Timeouts count as silence here; other read failures
+     * terminate acquisition. Cleanup also runs after cancellation before open.
+     */
     @Override
     public void run() {
         String message = "TA612C stopped. Collected data is retained.";

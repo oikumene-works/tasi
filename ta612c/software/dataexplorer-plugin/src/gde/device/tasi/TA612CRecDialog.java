@@ -9,8 +9,18 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-/** Explicit interval entry: there is intentionally no default recording interval. */
+/**
+ * SWT prompt for the historical recording interval, which REC bytes do not
+ * establish. Intentionally starts blank so a guessed default cannot silently
+ * become a time axis. Explains timing and completeness limits before download.
+ */
 final class TA612CRecDialog {
+    /**
+     * Opens on the SWT thread and returns validated milliseconds, or null on
+     * Cancel/window close. Invalid text leaves the dialog open. Its nested event
+     * loop can change application state; callers must recheck the active device
+     * and acquisition ownership after return before opening the transport.
+     */
     static Long open(Shell parent) {
         Shell dialog = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
         dialog.setText("Download TA612C REC memory");

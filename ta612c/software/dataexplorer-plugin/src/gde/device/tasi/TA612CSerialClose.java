@@ -9,7 +9,17 @@ import gde.comm.DeviceJavaSerialCommPortImpl;
  * works when the plugin and core use different class loaders.
  */
 public final class TA612CSerialClose {
+    /** Utility class; the core backend owns the close thread. */
     private TA612CSerialClose() { }
+    /**
+     * Waits at most two seconds for the Java serial backend's current close
+     * thread. Other backend types need no handling here. Interrupts, including
+     * worker cancellation, are remembered and restored after waiting so they
+     * cannot release ownership while the asynchronous close is still running.
+     *
+     * @throws IllegalStateException if reflection fails or closure times out;
+     *         the caller must retain its ownership guard on either failure
+     */
     public static void await(IDeviceCommPort port) {
         if (!(port instanceof DeviceJavaSerialCommPortImpl serial)) return;
         Thread closing;
