@@ -1,0 +1,12 @@
+{
+  "core": {
+    "path": "DataExplorer/DataExplorer.jar",
+    "sha256": "637a24be90e34c8e081d229a0e55d18cc92340d45ebe43130a9fb2b4fb1617a4",
+    "manifest": "Manifest-Version: 1.0\r\nAnt-Version: Apache Ant 1.10.14\r\nCreated-By: brueg\r\nImplementation-Version: 4.0.8\r\nBuilt-Date: 2026-10-15 12:18:13\r\nMain-Class: gde.GDE\r\nClass-Path: java/ext/juniversalchardet.jar java/ext/jaxb-api.jar java/\r\n ext/jaxb-core.jar java/ext/jaxb-runtime.jar java/ext/istack-commons-r\r\n untime.jar java/ext/activation.jar java/ext/gson.jar java/ext/swt.jar\r\n  java/ext/jSerialComm.jar java/ext/usb-api.jar java/ext/usb4java-java\r\n x.jar java/ext/usb4java.jar java/ext/commons-lang3.jar java/ext/libus\r\n b4java.jar java/ext/jtouchbar.jar java/ext/jtouchbar-swt.jar\r\n\r\n"
+  },
+  "plugin": {
+    "path": "DataExplorer/devices/Tasi.jar",
+    "sha256": "6738ecd6a704b97c346a1be4052851d7bfed45a1efbc9c318c4c7e7bc07d0829",
+    "manifest": "Manifest-Version: 1.0\r\nAnt-Version: Apache Ant 1.10.14\r\nCreated-By: brueg\r\nImplementation-Version: 4.0.8\r\nBuilt-Date: 2026-10-15 12:18:32\r\nBundle-Version: 4.0.8\r\nBundle-SymbolicName: Tasi\r\nBundle-Description: Implementation Tasi thermometer using serial comm\r\nExport-Service: TA612C:TASI:SERIAL_IO\r\n\r\n"
+  }
+}

@@ -1,0 +1,1199 @@
+[
+  {
+    "class": "gde/data/Channel$1.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "c30f20e84e97c2ee3139add9f82f5bc64019b2bd6402576fc55e8e6c9e45c436",
+    "distributed_sha256": "c30f20e84e97c2ee3139add9f82f5bc64019b2bd6402576fc55e8e6c9e45c436"
+  },
+  {
+    "class": "gde/data/Channel.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "dff0e70acc45764cd2cb34cba983f41eafe6f84ea843befc90f9d15e02094c7b",
+    "distributed_sha256": "dff0e70acc45764cd2cb34cba983f41eafe6f84ea843befc90f9d15e02094c7b"
+  },
+  {
+    "class": "gde/data/Record$DataType.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "8a94c7f99efa69ebd3561843b3c0e7d95b4629aea8a00117562a56f9ff5fc6d9",
+    "distributed_sha256": "8a94c7f99efa69ebd3561843b3c0e7d95b4629aea8a00117562a56f9ff5fc6d9"
+  },
+  {
+    "class": "gde/data/Record$TriggerRange.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "d944e6eddd878c170632d7a8dc2e6a4edb1bd8e297401a421cd76ad672ef8e7c",
+    "distributed_sha256": "d944e6eddd878c170632d7a8dc2e6a4edb1bd8e297401a421cd76ad672ef8e7c"
+  },
+  {
+    "class": "gde/data/Record.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "b8a9b56abc87e389d4d5e0d7d7bc4bd22d98701d80c7f228d5f747b2a1f73de0",
+    "distributed_sha256": "b8a9b56abc87e389d4d5e0d7d7bc4bd22d98701d80c7f228d5f747b2a1f73de0"
+  },
+  {
+    "class": "gde/data/RecordSet$1.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e302a4cc695c3cf20d05488178c637264e0dfcf0b669500f8329bb8d3161aab0",
+    "distributed_sha256": "e302a4cc695c3cf20d05488178c637264e0dfcf0b669500f8329bb8d3161aab0"
+  },
+  {
+    "class": "gde/data/RecordSet.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7055a539678ab8eeeff9f4b6a70408906fb58002a12d429c1b030141b1206fbb",
+    "distributed_sha256": "7055a539678ab8eeeff9f4b6a70408906fb58002a12d429c1b030141b1206fbb"
+  },
+  {
+    "class": "gde/data/TimeSteps.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "a006fdeb820782bf8eecc0397e9e52f00569726565493d33b34a51300189bb01",
+    "distributed_sha256": "a006fdeb820782bf8eecc0397e9e52f00569726565493d33b34a51300189bb01"
+  },
+  {
+    "class": "gde/device/DeviceConfiguration.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e5d11a76bb8e10a23fb510a157777c6c2e3876c9c0157c49701b49d068982df1",
+    "distributed_sha256": "e5d11a76bb8e10a23fb510a157777c6c2e3876c9c0157c49701b49d068982df1"
+  },
+  {
+    "class": "gde/device/tasi/TA612C$1.class",
+    "jar": "plugin",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "41e8c419fc946b189a12611621e8dbfd18011f2053c22c9811b06eb1a3e4b097",
+    "distributed_sha256": "41e8c419fc946b189a12611621e8dbfd18011f2053c22c9811b06eb1a3e4b097"
+  },
+  {
+    "class": "gde/device/tasi/TA612C.class",
+    "jar": "plugin",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "a52bb24fffde718e0aa6e5a471dd7f20a17680d71711d5807f4a5710a446843f",
+    "distributed_sha256": "a52bb24fffde718e0aa6e5a471dd7f20a17680d71711d5807f4a5710a446843f"
+  },
+  {
+    "class": "gde/device/tasi/TA612CRecDialog.class",
+    "jar": "plugin",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "68ca15c7133f8e27e0df93acef01d9ee525e97acdd8dfff11e08e6a0071eaed3",
+    "distributed_sha256": "68ca15c7133f8e27e0df93acef01d9ee525e97acdd8dfff11e08e6a0071eaed3"
+  },
+  {
+    "class": "gde/device/tasi/TA612CRecImport.class",
+    "jar": "plugin",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "997849b5938916c0539f260ab53e33fd6758fd9925c72f5afe4d8e500feb61f5",
+    "distributed_sha256": "997849b5938916c0539f260ab53e33fd6758fd9925c72f5afe4d8e500feb61f5"
+  },
+  {
+    "class": "gde/io/FileHandler.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7447863ca19775c71aede55518828a0be3b80150a4d5539ebdfebc8f583b0bf9",
+    "distributed_sha256": "7447863ca19775c71aede55518828a0be3b80150a4d5539ebdfebc8f583b0bf9"
+  },
+  {
+    "class": "gde/ui/DataExplorer$1.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "c3f06a95add4c108e475a313c6ba0448013dbee8414141edf24ec66bb8232325",
+    "distributed_sha256": "c3f06a95add4c108e475a313c6ba0448013dbee8414141edf24ec66bb8232325"
+  },
+  {
+    "class": "gde/ui/DataExplorer$10.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "2b3bd9e586b59ebbedf02a9e559cdc3d3e08f6e8892a84f189d3e07b90e86b38",
+    "distributed_sha256": "2b3bd9e586b59ebbedf02a9e559cdc3d3e08f6e8892a84f189d3e07b90e86b38"
+  },
+  {
+    "class": "gde/ui/DataExplorer$11.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7f3319f31d0e1b7f15ff0b9abfdb4e7036a2025040e5d93ebb6ca79dbf3b0d71",
+    "distributed_sha256": "7f3319f31d0e1b7f15ff0b9abfdb4e7036a2025040e5d93ebb6ca79dbf3b0d71"
+  },
+  {
+    "class": "gde/ui/DataExplorer$12.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "82b4dfdd917d94251c063499a638ba8f9f8df608bc7cb5902091386bb93e5f14",
+    "distributed_sha256": "82b4dfdd917d94251c063499a638ba8f9f8df608bc7cb5902091386bb93e5f14"
+  },
+  {
+    "class": "gde/ui/DataExplorer$13.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7c0c3d90c20820fdd4c7eff572967e3ea353b961d99220df768886e9d05de36f",
+    "distributed_sha256": "7c0c3d90c20820fdd4c7eff572967e3ea353b961d99220df768886e9d05de36f"
+  },
+  {
+    "class": "gde/ui/DataExplorer$14.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "2d047e2f8468760434030ede54d003ee4e18206d7d685564d760873513265164",
+    "distributed_sha256": "2d047e2f8468760434030ede54d003ee4e18206d7d685564d760873513265164"
+  },
+  {
+    "class": "gde/ui/DataExplorer$15.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "ed93e7a81c29ac939ec864bfaa2c385967925b2136215ffdefdfd2dfb0e998ab",
+    "distributed_sha256": "ed93e7a81c29ac939ec864bfaa2c385967925b2136215ffdefdfd2dfb0e998ab"
+  },
+  {
+    "class": "gde/ui/DataExplorer$16.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "90ac503ebef978164967260716367794b73b7acdbf01a789b6b1ddfa0f85c6c1",
+    "distributed_sha256": "90ac503ebef978164967260716367794b73b7acdbf01a789b6b1ddfa0f85c6c1"
+  },
+  {
+    "class": "gde/ui/DataExplorer$17.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "af9d958b4ca5895ad9964868cfdd3d378225b01cb2943f88c600bef49910cb3d",
+    "distributed_sha256": "af9d958b4ca5895ad9964868cfdd3d378225b01cb2943f88c600bef49910cb3d"
+  },
+  {
+    "class": "gde/ui/DataExplorer$18.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "920c3e95e89dba6790beea1d905ef406edd54b2bba9d4c8be2b7c168e131890a",
+    "distributed_sha256": "920c3e95e89dba6790beea1d905ef406edd54b2bba9d4c8be2b7c168e131890a"
+  },
+  {
+    "class": "gde/ui/DataExplorer$19.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "d08aec59ce33a4363d840aed0594459595bc943f63c12fceed0a2ee275e1e319",
+    "distributed_sha256": "d08aec59ce33a4363d840aed0594459595bc943f63c12fceed0a2ee275e1e319"
+  },
+  {
+    "class": "gde/ui/DataExplorer$2.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "4b626c090db0f0e2ec5548d5067bce55bc86924e17c07ce4c7f5e581ab3d35dd",
+    "distributed_sha256": "4b626c090db0f0e2ec5548d5067bce55bc86924e17c07ce4c7f5e581ab3d35dd"
+  },
+  {
+    "class": "gde/ui/DataExplorer$20.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "20c21503d866598cddf5102d4f8dd215df6128fb8568c9598ce028999c20c171",
+    "distributed_sha256": "20c21503d866598cddf5102d4f8dd215df6128fb8568c9598ce028999c20c171"
+  },
+  {
+    "class": "gde/ui/DataExplorer$21.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "d2c4d87c4bea90d0df03ec62835f1e086c9ded05645ce517bacec5113cf9ba22",
+    "distributed_sha256": "d2c4d87c4bea90d0df03ec62835f1e086c9ded05645ce517bacec5113cf9ba22"
+  },
+  {
+    "class": "gde/ui/DataExplorer$22.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "b356d0f816904f408443fedd065df09e418ac21351bbbc5d42d1cf11e26c28b8",
+    "distributed_sha256": "b356d0f816904f408443fedd065df09e418ac21351bbbc5d42d1cf11e26c28b8"
+  },
+  {
+    "class": "gde/ui/DataExplorer$23.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "06ff4c48f1c5eaef077e93f539834821902f74567694bfe825030b5c088d2a24",
+    "distributed_sha256": "06ff4c48f1c5eaef077e93f539834821902f74567694bfe825030b5c088d2a24"
+  },
+  {
+    "class": "gde/ui/DataExplorer$24.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "b29d827bb42a1394059d296504e56b5eb6807ffc0088099aee001fda75f2ee2a",
+    "distributed_sha256": "b29d827bb42a1394059d296504e56b5eb6807ffc0088099aee001fda75f2ee2a"
+  },
+  {
+    "class": "gde/ui/DataExplorer$25.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "d16f911396ecef4f0bebf14d99fefa1313fde3f6765db4b49289576f34600c4c",
+    "distributed_sha256": "d16f911396ecef4f0bebf14d99fefa1313fde3f6765db4b49289576f34600c4c"
+  },
+  {
+    "class": "gde/ui/DataExplorer$26.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "6a9666f14c327220748b3fc5ecb292d9a79d8fb7cda92d696a6f928f1c4c367c",
+    "distributed_sha256": "6a9666f14c327220748b3fc5ecb292d9a79d8fb7cda92d696a6f928f1c4c367c"
+  },
+  {
+    "class": "gde/ui/DataExplorer$27.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "8e252ef7621f0f10856277cb2f6d4af3ec84bd915a77ed42cd5b45a1b62d7c52",
+    "distributed_sha256": "8e252ef7621f0f10856277cb2f6d4af3ec84bd915a77ed42cd5b45a1b62d7c52"
+  },
+  {
+    "class": "gde/ui/DataExplorer$28.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "cd02548162adf1740fb785ab67310e4fc43571875130edaffa2e00d441ab47e4",
+    "distributed_sha256": "cd02548162adf1740fb785ab67310e4fc43571875130edaffa2e00d441ab47e4"
+  },
+  {
+    "class": "gde/ui/DataExplorer$29.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e5c7e5a99102382462d3c47e3bad8f907086df1bdb51427d1f57e85726f760ad",
+    "distributed_sha256": "e5c7e5a99102382462d3c47e3bad8f907086df1bdb51427d1f57e85726f760ad"
+  },
+  {
+    "class": "gde/ui/DataExplorer$3.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "31e794f18cb543b391c5dc64d3547e0acdda51f5a210486627412ba56b3d8788",
+    "distributed_sha256": "31e794f18cb543b391c5dc64d3547e0acdda51f5a210486627412ba56b3d8788"
+  },
+  {
+    "class": "gde/ui/DataExplorer$30.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "cc8ef356093e31be817b5f6887047a349f83305fa122edf991fe2aff03bc3f14",
+    "distributed_sha256": "cc8ef356093e31be817b5f6887047a349f83305fa122edf991fe2aff03bc3f14"
+  },
+  {
+    "class": "gde/ui/DataExplorer$31.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "3bb394ea94f5e87150620cb9f4f9e1200b184d6c7900d6dd941af6a048c1fb7a",
+    "distributed_sha256": "3bb394ea94f5e87150620cb9f4f9e1200b184d6c7900d6dd941af6a048c1fb7a"
+  },
+  {
+    "class": "gde/ui/DataExplorer$32.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "291118d38c21134ae3cfd71ac20eedcfe19ea707862e7d623949f7ebb2f4ed2d",
+    "distributed_sha256": "291118d38c21134ae3cfd71ac20eedcfe19ea707862e7d623949f7ebb2f4ed2d"
+  },
+  {
+    "class": "gde/ui/DataExplorer$33.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "6b84d4e1cb79fe09b91cd48517f83cc996970d2ffbd8d9a201cabb3a881a925a",
+    "distributed_sha256": "6b84d4e1cb79fe09b91cd48517f83cc996970d2ffbd8d9a201cabb3a881a925a"
+  },
+  {
+    "class": "gde/ui/DataExplorer$34.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "ffa636b5b2b225bf747f3e1199fc963ba6ac19961252e1054b26ccb4d7d9214b",
+    "distributed_sha256": "ffa636b5b2b225bf747f3e1199fc963ba6ac19961252e1054b26ccb4d7d9214b"
+  },
+  {
+    "class": "gde/ui/DataExplorer$35.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "faf0fc3671afa46d0f7c9a62c2e4b64183b4ecbedfd6ba41fedf1db9f3efa6bb",
+    "distributed_sha256": "faf0fc3671afa46d0f7c9a62c2e4b64183b4ecbedfd6ba41fedf1db9f3efa6bb"
+  },
+  {
+    "class": "gde/ui/DataExplorer$36.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "2cd1ab933c425386867e074a411a3ad03ea0e6973af468d1a3a04f8b02cb3fa2",
+    "distributed_sha256": "2cd1ab933c425386867e074a411a3ad03ea0e6973af468d1a3a04f8b02cb3fa2"
+  },
+  {
+    "class": "gde/ui/DataExplorer$37.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e3d876c72cc3f0c01db9f25b3ac0b21c0eabb68751bf9f363786b491b35e6fdc",
+    "distributed_sha256": "e3d876c72cc3f0c01db9f25b3ac0b21c0eabb68751bf9f363786b491b35e6fdc"
+  },
+  {
+    "class": "gde/ui/DataExplorer$38.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "8fe42542b9b25964cf5a0ca8b7d776ce6c8d6d519e81da828b046e913c27dabd",
+    "distributed_sha256": "8fe42542b9b25964cf5a0ca8b7d776ce6c8d6d519e81da828b046e913c27dabd"
+  },
+  {
+    "class": "gde/ui/DataExplorer$39.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7b959f7ea3a15be5a518b7d99ffb7babce05b4fd4b2e3b24e896ec72ce26b50c",
+    "distributed_sha256": "7b959f7ea3a15be5a518b7d99ffb7babce05b4fd4b2e3b24e896ec72ce26b50c"
+  },
+  {
+    "class": "gde/ui/DataExplorer$4.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "d4076af123aac2b7a584d254e75a5cfc14405269c2fc7ba5616976b5e573c005",
+    "distributed_sha256": "d4076af123aac2b7a584d254e75a5cfc14405269c2fc7ba5616976b5e573c005"
+  },
+  {
+    "class": "gde/ui/DataExplorer$40.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "04487bbd78f4feae49736a47ac0df665e93e92f6cff764da882b53f07c1d8e19",
+    "distributed_sha256": "04487bbd78f4feae49736a47ac0df665e93e92f6cff764da882b53f07c1d8e19"
+  },
+  {
+    "class": "gde/ui/DataExplorer$41.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "b5a7874b878605300cbc3a490c7ee554c22fb82373982633d72a983c848a8128",
+    "distributed_sha256": "b5a7874b878605300cbc3a490c7ee554c22fb82373982633d72a983c848a8128"
+  },
+  {
+    "class": "gde/ui/DataExplorer$42.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "a9905a9f069452d1f2485737c1563d580802dceb32c3a42467f9bbd3f64e5343",
+    "distributed_sha256": "a9905a9f069452d1f2485737c1563d580802dceb32c3a42467f9bbd3f64e5343"
+  },
+  {
+    "class": "gde/ui/DataExplorer$43.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "1dfe6a63b8216675a41744a0196304cee94f2506aab3d0588211b3a956413ea0",
+    "distributed_sha256": "1dfe6a63b8216675a41744a0196304cee94f2506aab3d0588211b3a956413ea0"
+  },
+  {
+    "class": "gde/ui/DataExplorer$44.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "9c86cfa462cb6427748b98b51eaf2c27e691e455b7d987b9f789d04dddd8f939",
+    "distributed_sha256": "9c86cfa462cb6427748b98b51eaf2c27e691e455b7d987b9f789d04dddd8f939"
+  },
+  {
+    "class": "gde/ui/DataExplorer$45.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "055315a41b40659bdd7b693ce74a1f8ddf116c0ab423bd9e53df63c6c6a7d250",
+    "distributed_sha256": "055315a41b40659bdd7b693ce74a1f8ddf116c0ab423bd9e53df63c6c6a7d250"
+  },
+  {
+    "class": "gde/ui/DataExplorer$46.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "8ac27bff8cf36ba30cefc9c1980a4b22248b8e39e1ace3e5af8a39007a9283d8",
+    "distributed_sha256": "8ac27bff8cf36ba30cefc9c1980a4b22248b8e39e1ace3e5af8a39007a9283d8"
+  },
+  {
+    "class": "gde/ui/DataExplorer$47.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "1fb3560cbffbad340caa0e7e72875ca5aea87b25fb7930f6e83c7ac251df23c1",
+    "distributed_sha256": "1fb3560cbffbad340caa0e7e72875ca5aea87b25fb7930f6e83c7ac251df23c1"
+  },
+  {
+    "class": "gde/ui/DataExplorer$48.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "de2a5909c8abc4c150785004eb6b2f721d2a3cabfba424c1b765cf19467c2217",
+    "distributed_sha256": "de2a5909c8abc4c150785004eb6b2f721d2a3cabfba424c1b765cf19467c2217"
+  },
+  {
+    "class": "gde/ui/DataExplorer$49.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "dc9779b71eb53717901f1de3dc688be94b1e223344ff59be7774439e64edb784",
+    "distributed_sha256": "dc9779b71eb53717901f1de3dc688be94b1e223344ff59be7774439e64edb784"
+  },
+  {
+    "class": "gde/ui/DataExplorer$5.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "dc26f9e20df6d82bf0987bef773774a106eceadcea462046e34c84b0410f4933",
+    "distributed_sha256": "dc26f9e20df6d82bf0987bef773774a106eceadcea462046e34c84b0410f4933"
+  },
+  {
+    "class": "gde/ui/DataExplorer$50.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "77ef406a38753ee77faecc13e34d0987cff1b23c844ea2345bb0a0ce42d3ee00",
+    "distributed_sha256": "77ef406a38753ee77faecc13e34d0987cff1b23c844ea2345bb0a0ce42d3ee00"
+  },
+  {
+    "class": "gde/ui/DataExplorer$51.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "23140be5f33aa2cc6c41ed299a31158660b12e1bebf01def6ff4d1a38b00bc8e",
+    "distributed_sha256": "23140be5f33aa2cc6c41ed299a31158660b12e1bebf01def6ff4d1a38b00bc8e"
+  },
+  {
+    "class": "gde/ui/DataExplorer$52.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "9f1cd8386647c4c9204b806c0f14aa792aa7a23fb9a07aa720f084918699b51a",
+    "distributed_sha256": "9f1cd8386647c4c9204b806c0f14aa792aa7a23fb9a07aa720f084918699b51a"
+  },
+  {
+    "class": "gde/ui/DataExplorer$53.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "cb46248b7c9f55ba94b1754f28cbacdbb694e2fb044a17d952b9333adbc581da",
+    "distributed_sha256": "cb46248b7c9f55ba94b1754f28cbacdbb694e2fb044a17d952b9333adbc581da"
+  },
+  {
+    "class": "gde/ui/DataExplorer$54.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "f21e9260ffbc24dc1fe0af0fe3b699d509611be43b47e728beee89b0fd02b00d",
+    "distributed_sha256": "f21e9260ffbc24dc1fe0af0fe3b699d509611be43b47e728beee89b0fd02b00d"
+  },
+  {
+    "class": "gde/ui/DataExplorer$55.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e8015c0509f035bece926740e2a9b68370b3c04a23bf903efce254741bec379a",
+    "distributed_sha256": "e8015c0509f035bece926740e2a9b68370b3c04a23bf903efce254741bec379a"
+  },
+  {
+    "class": "gde/ui/DataExplorer$56.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "ca7efec7c74fdc2822f8957dd0fe8dd7e210486c884a526d86bca622fe639499",
+    "distributed_sha256": "ca7efec7c74fdc2822f8957dd0fe8dd7e210486c884a526d86bca622fe639499"
+  },
+  {
+    "class": "gde/ui/DataExplorer$57.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e6d6def057f3fab37e9708b15512ec6e14230305b82e1bd7175ea266083b4edd",
+    "distributed_sha256": "e6d6def057f3fab37e9708b15512ec6e14230305b82e1bd7175ea266083b4edd"
+  },
+  {
+    "class": "gde/ui/DataExplorer$58.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e31f390c3ceb4bf8afe875d35dca1448f77e9bcca03545e9b1b3b3b4b92c257c",
+    "distributed_sha256": "e31f390c3ceb4bf8afe875d35dca1448f77e9bcca03545e9b1b3b3b4b92c257c"
+  },
+  {
+    "class": "gde/ui/DataExplorer$59.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "8af836279c30636b57b13b607302e65dbd8b3ba1bf09d2f0ac46bae5e15745d4",
+    "distributed_sha256": "8af836279c30636b57b13b607302e65dbd8b3ba1bf09d2f0ac46bae5e15745d4"
+  },
+  {
+    "class": "gde/ui/DataExplorer$6.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "093b7ad8544427b307ff2e8e578d7ba0604ec951e6af649c03f9a6c89352b4d9",
+    "distributed_sha256": "093b7ad8544427b307ff2e8e578d7ba0604ec951e6af649c03f9a6c89352b4d9"
+  },
+  {
+    "class": "gde/ui/DataExplorer$60.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "5075f0a42aebf1f30b6dcb0a5dd190bc686b7c2048b00873594adfccf16c29a7",
+    "distributed_sha256": "5075f0a42aebf1f30b6dcb0a5dd190bc686b7c2048b00873594adfccf16c29a7"
+  },
+  {
+    "class": "gde/ui/DataExplorer$61.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "645a513565fb9629d5b7fddb3ab0b5fb552b9e8c6b85ce372d0d397419c76daf",
+    "distributed_sha256": "645a513565fb9629d5b7fddb3ab0b5fb552b9e8c6b85ce372d0d397419c76daf"
+  },
+  {
+    "class": "gde/ui/DataExplorer$62$1.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "31dae7f4b0af306338e2a9f71b33ead72019383c1285b02f38fccc48455d7d11",
+    "distributed_sha256": "31dae7f4b0af306338e2a9f71b33ead72019383c1285b02f38fccc48455d7d11"
+  },
+  {
+    "class": "gde/ui/DataExplorer$62.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7ce33757f106b1401e597670e95b95356739dadeda9a297bd407cab3d52d7e9e",
+    "distributed_sha256": "7ce33757f106b1401e597670e95b95356739dadeda9a297bd407cab3d52d7e9e"
+  },
+  {
+    "class": "gde/ui/DataExplorer$63.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "20f163cdc7d31a34507b99d946fec685be0000c61cdd778238df626c93edbe07",
+    "distributed_sha256": "20f163cdc7d31a34507b99d946fec685be0000c61cdd778238df626c93edbe07"
+  },
+  {
+    "class": "gde/ui/DataExplorer$7.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "4261313bdd49218a566e88e47681091d34b772d18467cb433c0584249a55bc59",
+    "distributed_sha256": "4261313bdd49218a566e88e47681091d34b772d18467cb433c0584249a55bc59"
+  },
+  {
+    "class": "gde/ui/DataExplorer$8.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "c0ed66ee4f1b90d668ac5aaa616177257d04b73f396c006fddf4ad7a0e9c1db6",
+    "distributed_sha256": "c0ed66ee4f1b90d668ac5aaa616177257d04b73f396c006fddf4ad7a0e9c1db6"
+  },
+  {
+    "class": "gde/ui/DataExplorer$9.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "dc0ddeb6fdeeeeeeb561d997c654f18ad9e77d57e817666adcb88cd664b07822",
+    "distributed_sha256": "dc0ddeb6fdeeeeeeb561d997c654f18ad9e77d57e817666adcb88cd664b07822"
+  },
+  {
+    "class": "gde/ui/DataExplorer.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "9708ed349a0aedc17a73215c256f850f2f1d166d5d986bb4bdbae9c07d776787",
+    "distributed_sha256": "9708ed349a0aedc17a73215c256f850f2f1d166d5d986bb4bdbae9c07d776787"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$1.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "a4e8737557eb4d8c6d00299125c5f017b7f1a087cc1458dbaec0956495b7706a",
+    "distributed_sha256": "a4e8737557eb4d8c6d00299125c5f017b7f1a087cc1458dbaec0956495b7706a"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$10.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "4681ca61cfec9d7d2e48637d8d7f8c8d6210bfc22b765c43e9f11e71e1171284",
+    "distributed_sha256": "4681ca61cfec9d7d2e48637d8d7f8c8d6210bfc22b765c43e9f11e71e1171284"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$11.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "cb4efff6e225b1fcb6a81ef2925b75e7ac891c26176d2b8de73c53cce935696a",
+    "distributed_sha256": "cb4efff6e225b1fcb6a81ef2925b75e7ac891c26176d2b8de73c53cce935696a"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$12.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "b332c001bd73040c28753fa84f4278ffeeef39f5a1209b4217e49e9aa07652ad",
+    "distributed_sha256": "b332c001bd73040c28753fa84f4278ffeeef39f5a1209b4217e49e9aa07652ad"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$13.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "cfd96379c59bad2a7f86056a9e7c3ee0195d094b2d0a4f702b30b7e86032e274",
+    "distributed_sha256": "cfd96379c59bad2a7f86056a9e7c3ee0195d094b2d0a4f702b30b7e86032e274"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$14$1.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "14720064b2db61bbb7a0e4fa2976204144b8683d21324860c6eaa5b19fc44458",
+    "distributed_sha256": "14720064b2db61bbb7a0e4fa2976204144b8683d21324860c6eaa5b19fc44458"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$14.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "b2d9d938c695bea5facd80b53798c29c59a45950c5e1a040174268fff11cbccc",
+    "distributed_sha256": "b2d9d938c695bea5facd80b53798c29c59a45950c5e1a040174268fff11cbccc"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$2.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "a411d45504f640a90a8b533b11b9deca1f5e847f228208feb1ba1d5396c41860",
+    "distributed_sha256": "a411d45504f640a90a8b533b11b9deca1f5e847f228208feb1ba1d5396c41860"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$3.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "919a1f2076389d6efac7edcd045b8484d68cd6457720a866192f0fd0503c9d6a",
+    "distributed_sha256": "919a1f2076389d6efac7edcd045b8484d68cd6457720a866192f0fd0503c9d6a"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$4.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "164cb59980618b33f5f3ef4428799f0841bc4ab69cd1b46cf844b795ae974b09",
+    "distributed_sha256": "164cb59980618b33f5f3ef4428799f0841bc4ab69cd1b46cf844b795ae974b09"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$5.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "c6652b70f0da7dc660be30fa13c12764f8959b07ec14b4d85d01fc398c5a37e9",
+    "distributed_sha256": "c6652b70f0da7dc660be30fa13c12764f8959b07ec14b4d85d01fc398c5a37e9"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$6.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7021b9f66589a55e1cb8b544ba7ce07317ad0e3b9b9ca5a8926cb8fc43008a4c",
+    "distributed_sha256": "7021b9f66589a55e1cb8b544ba7ce07317ad0e3b9b9ca5a8926cb8fc43008a4c"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$7.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "18e0f754e81ef4fffabcd846a655c89203fc8dc060a361fbdebd9f10f072ec06",
+    "distributed_sha256": "18e0f754e81ef4fffabcd846a655c89203fc8dc060a361fbdebd9f10f072ec06"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$8.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "ce19d478bf927216621ae8be73535efdab6f6d85cd5e25f244666dbf2e3513d6",
+    "distributed_sha256": "ce19d478bf927216621ae8be73535efdab6f6d85cd5e25f244666dbf2e3513d6"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog$9.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "04a6802ab9e42edd60bf25442a76a75b216ec838a47ba24a9d9bfd7df45e9f7f",
+    "distributed_sha256": "04a6802ab9e42edd60bf25442a76a75b216ec838a47ba24a9d9bfd7df45e9f7f"
+  },
+  {
+    "class": "gde/ui/dialog/DeviceSelectionDialog.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "9fc8a4b480354b522a8845a2fcde3c49ea06f4109ca6cd8cfc005bcfafe0864d",
+    "distributed_sha256": "9fc8a4b480354b522a8845a2fcde3c49ea06f4109ca6cd8cfc005bcfafe0864d"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$1.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "cbd82532581f7f550ad7de1e88b38775f7a44f97e2a5ae6630bb9dc1ba5fe65c",
+    "distributed_sha256": "cbd82532581f7f550ad7de1e88b38775f7a44f97e2a5ae6630bb9dc1ba5fe65c"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$10.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "dd213fc8c0533eaf63672702a075abe7cea85c91bf9e18faaf6b606d2d142de5",
+    "distributed_sha256": "dd213fc8c0533eaf63672702a075abe7cea85c91bf9e18faaf6b606d2d142de5"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$11.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e96b8b758fe38b5ced422df266e988bf8a1e725e7db574452eefef1ef4c8217b",
+    "distributed_sha256": "e96b8b758fe38b5ced422df266e988bf8a1e725e7db574452eefef1ef4c8217b"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$12.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "3813af58a78d84d803675e331398d1ec61659dcce3fdc7f1a508271cc52af687",
+    "distributed_sha256": "3813af58a78d84d803675e331398d1ec61659dcce3fdc7f1a508271cc52af687"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$13.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7353f4e511a19b74b849bd7bdba9ddc5804e06132e568b810fa8cf8227436386",
+    "distributed_sha256": "7353f4e511a19b74b849bd7bdba9ddc5804e06132e568b810fa8cf8227436386"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$14.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "469cbec1eed8577705f0950bd04e06d1e79cf1259fc5c77cb15500ab2da3956b",
+    "distributed_sha256": "469cbec1eed8577705f0950bd04e06d1e79cf1259fc5c77cb15500ab2da3956b"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$15.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "2d2e2ce5051c3c322aee912eec95c60512ff2efb14ee63361c1f6e1fd80a8609",
+    "distributed_sha256": "2d2e2ce5051c3c322aee912eec95c60512ff2efb14ee63361c1f6e1fd80a8609"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$16.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "a4b996c1817fd0a094f15f96b0b94b160308a95a2702bac4c100be3d49983a87",
+    "distributed_sha256": "a4b996c1817fd0a094f15f96b0b94b160308a95a2702bac4c100be3d49983a87"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$17.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7ea7ecb97486aaac1cfd689e969f4c32c056ec9367a5b8be7ec154e3e654e1a8",
+    "distributed_sha256": "7ea7ecb97486aaac1cfd689e969f4c32c056ec9367a5b8be7ec154e3e654e1a8"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$18.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "94df8a79dccc87e85d2e86a7c0e68557f290a0f19464c21047deda25aa3c1415",
+    "distributed_sha256": "94df8a79dccc87e85d2e86a7c0e68557f290a0f19464c21047deda25aa3c1415"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$19.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "ea79ce6320aa81194ae6947c4784778be27c65e84a0cd834f205db0d8af19d8b",
+    "distributed_sha256": "ea79ce6320aa81194ae6947c4784778be27c65e84a0cd834f205db0d8af19d8b"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$2.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "f6fcd0e272e7c21d5732b8dc2964cd2b7e1881c3de3da5c613f07c5928e5db06",
+    "distributed_sha256": "f6fcd0e272e7c21d5732b8dc2964cd2b7e1881c3de3da5c613f07c5928e5db06"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$20.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "ad9f3b32a0524382d0389875ee8092db84077747cbcf8af308cc5136b8fc87bc",
+    "distributed_sha256": "ad9f3b32a0524382d0389875ee8092db84077747cbcf8af308cc5136b8fc87bc"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$21.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "699927795e958905a7ee58e9c63fd8346e23716211d0dd28072973b6c58315f2",
+    "distributed_sha256": "699927795e958905a7ee58e9c63fd8346e23716211d0dd28072973b6c58315f2"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$22.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "f011e62a959691136cd500ea866e48536ff4a66808085050529bc06c02651e3e",
+    "distributed_sha256": "f011e62a959691136cd500ea866e48536ff4a66808085050529bc06c02651e3e"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$23.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "1a2797f4e47332aaf2b4fe8f741c322aae2f33729c7f8bb94af52200f9db6f59",
+    "distributed_sha256": "1a2797f4e47332aaf2b4fe8f741c322aae2f33729c7f8bb94af52200f9db6f59"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$24.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e05b6e6a271b1d8fd910ed08721ee4dd86162e60369260dd58bddce31f3125b5",
+    "distributed_sha256": "e05b6e6a271b1d8fd910ed08721ee4dd86162e60369260dd58bddce31f3125b5"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$25.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "5776f1dda5d1a727ac21cc9d88bd14e3bebc427bc4d2b89c8a058d35f928e597",
+    "distributed_sha256": "5776f1dda5d1a727ac21cc9d88bd14e3bebc427bc4d2b89c8a058d35f928e597"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$26.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "fd439452330cbb1bc83bea5e14d683e75c7690ef9e47906ad87aae0b36e65aa9",
+    "distributed_sha256": "fd439452330cbb1bc83bea5e14d683e75c7690ef9e47906ad87aae0b36e65aa9"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$27.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "90a91c4518dc2727a9cf4911d09ed05a692944e48a5f88fbf75fe014bd887aaa",
+    "distributed_sha256": "90a91c4518dc2727a9cf4911d09ed05a692944e48a5f88fbf75fe014bd887aaa"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$28.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "3b2f675f174050a6926e0d36af1a15014b68f74001139d60f437ce6b642ebac6",
+    "distributed_sha256": "3b2f675f174050a6926e0d36af1a15014b68f74001139d60f437ce6b642ebac6"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$29.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "32bacb084419c63d5fa8bbe76449ba76665c38f7b5c065244ab36fa9980b32fc",
+    "distributed_sha256": "32bacb084419c63d5fa8bbe76449ba76665c38f7b5c065244ab36fa9980b32fc"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$3.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "0962bd374f00f8d41934b27e471e0bc527c6bfb3d946e32a20bf0a9f294ddae1",
+    "distributed_sha256": "0962bd374f00f8d41934b27e471e0bc527c6bfb3d946e32a20bf0a9f294ddae1"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$30.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "a3dc851be9c7fa73741815e075cadad9f083ecb0407f4d5eb787603b6cdacaa6",
+    "distributed_sha256": "a3dc851be9c7fa73741815e075cadad9f083ecb0407f4d5eb787603b6cdacaa6"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$31.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "02a9ab7041dd5989e5f282f173cfde8588692b08751efd47da2470c76e957a9d",
+    "distributed_sha256": "02a9ab7041dd5989e5f282f173cfde8588692b08751efd47da2470c76e957a9d"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$32.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "488242fdc2c1980d16f7b805be9eaff2619171b46ad4321a4f6f8693e633bab8",
+    "distributed_sha256": "488242fdc2c1980d16f7b805be9eaff2619171b46ad4321a4f6f8693e633bab8"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$33.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "54118f52685f2154c013c07b88158e44b87e639fdc0599149ac044dd833d756f",
+    "distributed_sha256": "54118f52685f2154c013c07b88158e44b87e639fdc0599149ac044dd833d756f"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$34.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "c0ee58a452f6112ea6ec108f3ce932be1593511237b7651136eabf8fafb17c56",
+    "distributed_sha256": "c0ee58a452f6112ea6ec108f3ce932be1593511237b7651136eabf8fafb17c56"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$35.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "78b6f15c1a2da94c3fead6ffd39fe9e3c40707e912e28eec50e8d5ecd3225bd1",
+    "distributed_sha256": "78b6f15c1a2da94c3fead6ffd39fe9e3c40707e912e28eec50e8d5ecd3225bd1"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$36.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "2dba4824beb7f837b72d0666632412c6cdda2a2243c4fc03a0437a0a22710dd9",
+    "distributed_sha256": "2dba4824beb7f837b72d0666632412c6cdda2a2243c4fc03a0437a0a22710dd9"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$37.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "4570ebc9d7a47bfaf696b13f570e9b0d078a849968ebcfd3adf127b17c366492",
+    "distributed_sha256": "4570ebc9d7a47bfaf696b13f570e9b0d078a849968ebcfd3adf127b17c366492"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$38.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "bc49a331b863675692b74ab1ad0438429539d821147fe4b7f83d0ab346836d8e",
+    "distributed_sha256": "bc49a331b863675692b74ab1ad0438429539d821147fe4b7f83d0ab346836d8e"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$39.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "54f52a110b6a170330aa8f4205369a4ec8e9f974b9c69bdee65eb1c0b34c9ca1",
+    "distributed_sha256": "54f52a110b6a170330aa8f4205369a4ec8e9f974b9c69bdee65eb1c0b34c9ca1"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$4.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "b2ebde9f14c7ca5c45aed9bfa5d7befd0ef6d7ee73aada5b953a7e9f0fb86024",
+    "distributed_sha256": "b2ebde9f14c7ca5c45aed9bfa5d7befd0ef6d7ee73aada5b953a7e9f0fb86024"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$40.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "6427010fa85b7c77e76eefa529499b7bce392a570ddb00ca79fe8aae4f57a2a9",
+    "distributed_sha256": "6427010fa85b7c77e76eefa529499b7bce392a570ddb00ca79fe8aae4f57a2a9"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$41.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "98fdf7bd3e3e59b650ffd7768e7524d0efc648f0621c0d14cb5385283b008eee",
+    "distributed_sha256": "98fdf7bd3e3e59b650ffd7768e7524d0efc648f0621c0d14cb5385283b008eee"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$42.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "9bd5c3a9cbb87fbea08d572608238fca267bb1fe9994c9be2c657d15e638e200",
+    "distributed_sha256": "9bd5c3a9cbb87fbea08d572608238fca267bb1fe9994c9be2c657d15e638e200"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$43.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "b085223976d130f3b9679751f31142556fd4c09738b833a6d587186c59793608",
+    "distributed_sha256": "b085223976d130f3b9679751f31142556fd4c09738b833a6d587186c59793608"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$44.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "85c77924539f5d8133928c8762f9cd72f41e7de4b003037c7f59c13eedcf40b5",
+    "distributed_sha256": "85c77924539f5d8133928c8762f9cd72f41e7de4b003037c7f59c13eedcf40b5"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$45.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "bff6e54b1c27387903d7e5e63cfd1dd768d260ce13db8438ecc931258c3a5aca",
+    "distributed_sha256": "bff6e54b1c27387903d7e5e63cfd1dd768d260ce13db8438ecc931258c3a5aca"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$46.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "2e77cc14f4d9e9f6103b1ab6d12f979c3551c6975e162c023fe3f97a54b640e4",
+    "distributed_sha256": "2e77cc14f4d9e9f6103b1ab6d12f979c3551c6975e162c023fe3f97a54b640e4"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$47.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "8fe890d59dfa7af343f9c649762b7f5c710a3a084208f0d855dd44d8fdc14a1b",
+    "distributed_sha256": "8fe890d59dfa7af343f9c649762b7f5c710a3a084208f0d855dd44d8fdc14a1b"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$48.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e90e4546c47b445db8f7d4c1409acbd61ea8b8849bcc79f67aa378b825ef5764",
+    "distributed_sha256": "e90e4546c47b445db8f7d4c1409acbd61ea8b8849bcc79f67aa378b825ef5764"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$49.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "41f4f2d852581d629db7ef713c278ced61eb3a09ee8f74b2591a423242b6ebc7",
+    "distributed_sha256": "41f4f2d852581d629db7ef713c278ced61eb3a09ee8f74b2591a423242b6ebc7"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$5.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "3f540bcbf3493209722b5a32bf761f4979bf1998b59b4c59de81677f61e349d3",
+    "distributed_sha256": "3f540bcbf3493209722b5a32bf761f4979bf1998b59b4c59de81677f61e349d3"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$50.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "bd51b18b0b8840ffef34a8dea8952fe7aa0db29691d5bb0f46494d92b8460af1",
+    "distributed_sha256": "bd51b18b0b8840ffef34a8dea8952fe7aa0db29691d5bb0f46494d92b8460af1"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$51.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "96505d25c8a5261ecbd40d6ade6e34b44d4e6ca02d74f62e197a343899c46be0",
+    "distributed_sha256": "96505d25c8a5261ecbd40d6ade6e34b44d4e6ca02d74f62e197a343899c46be0"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$52.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "0dbb865da3715f720f4a5b4538b89c49d1201ad243d411b2da1b6a41fc7ff14b",
+    "distributed_sha256": "0dbb865da3715f720f4a5b4538b89c49d1201ad243d411b2da1b6a41fc7ff14b"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$53.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "f563501a704f80aab5f54d0d44d98a5b732722271db368b897687bbabda51c9b",
+    "distributed_sha256": "f563501a704f80aab5f54d0d44d98a5b732722271db368b897687bbabda51c9b"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$54.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "b14e82072def2f86792041381332b0c4c2f8973c2a13a6432825d083d01baaff",
+    "distributed_sha256": "b14e82072def2f86792041381332b0c4c2f8973c2a13a6432825d083d01baaff"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$55.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e4e793d02f407f7985ce59145459934fccff301d355c1df569677bb6c0e037aa",
+    "distributed_sha256": "e4e793d02f407f7985ce59145459934fccff301d355c1df569677bb6c0e037aa"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$56.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "488a17d95a0e71b8682334b74d02936ec721bff0e1b43e635b32aa2f801e6e32",
+    "distributed_sha256": "488a17d95a0e71b8682334b74d02936ec721bff0e1b43e635b32aa2f801e6e32"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$57.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "5ae1e0cc2cbc0fe79d3be2340343631b9c567ab40592168c66f91b23c28746bd",
+    "distributed_sha256": "5ae1e0cc2cbc0fe79d3be2340343631b9c567ab40592168c66f91b23c28746bd"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$58.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7a91d7be87c7177be387c5ebbc2a3cdc66d428af4f4323f0aee443f62a8e3e67",
+    "distributed_sha256": "7a91d7be87c7177be387c5ebbc2a3cdc66d428af4f4323f0aee443f62a8e3e67"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$59.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "4cad0effd037ea9672120ed92d4c91f4c54311039a4afdc8f1e95bea4dd52acb",
+    "distributed_sha256": "4cad0effd037ea9672120ed92d4c91f4c54311039a4afdc8f1e95bea4dd52acb"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$6.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "ea2ba7d07fdb4a69de820c1f0d880a7a1d6fb9f6dc1f761cd354eeb23f40b26b",
+    "distributed_sha256": "ea2ba7d07fdb4a69de820c1f0d880a7a1d6fb9f6dc1f761cd354eeb23f40b26b"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$60.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "446f0789718f8ed5d100a18caa113b22ad80eaf8537dcd12d633d477abfe43b5",
+    "distributed_sha256": "446f0789718f8ed5d100a18caa113b22ad80eaf8537dcd12d633d477abfe43b5"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$61.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "226513729891ef6bbb669e70aec3b984b4e4a3390ff07a710352b9cfceb5bd3d",
+    "distributed_sha256": "226513729891ef6bbb669e70aec3b984b4e4a3390ff07a710352b9cfceb5bd3d"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$62.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "50e74efb52e8cca5e5cebcfe38840041f349cf217e5e7d390fc8d2ad972ecdfe",
+    "distributed_sha256": "50e74efb52e8cca5e5cebcfe38840041f349cf217e5e7d390fc8d2ad972ecdfe"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$63.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "9e595bc9e557c4bfefaac94fb7e68c551f2cd42e8a4c99d90309ef3fb7e7ab0d",
+    "distributed_sha256": "9e595bc9e557c4bfefaac94fb7e68c551f2cd42e8a4c99d90309ef3fb7e7ab0d"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$64.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "4a9187b69f026c6132c1e85e8dae409e9c0f1e822b696b90111fe3a7720d35b2",
+    "distributed_sha256": "4a9187b69f026c6132c1e85e8dae409e9c0f1e822b696b90111fe3a7720d35b2"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$7.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "f72d882affb70f1fd1b90b815d5de89e784f877692665bd38276139ea4e198a0",
+    "distributed_sha256": "f72d882affb70f1fd1b90b815d5de89e784f877692665bd38276139ea4e198a0"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$8.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "f5bf3f4e86fd47d952334ad05ea36d7803ca41a243da8b20238e45b538736461",
+    "distributed_sha256": "f5bf3f4e86fd47d952334ad05ea36d7803ca41a243da8b20238e45b538736461"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar$9.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "e621b455c057466fd2d79f8302f6ed4c83f770b175fbfb3f6d52154332ffb7b7",
+    "distributed_sha256": "e621b455c057466fd2d79f8302f6ed4c83f770b175fbfb3f6d52154332ffb7b7"
+  },
+  {
+    "class": "gde/ui/menu/MenuBar.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "d52dceacae67824eedfc41ad127ef35f1ac7e21050b374ad7c133a35cc8b7d2f",
+    "distributed_sha256": "d52dceacae67824eedfc41ad127ef35f1ac7e21050b374ad7c133a35cc8b7d2f"
+  },
+  {
+    "class": "gde/ui/tab/DataTableWindow$1$1.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "3ee0e7e4aa48ef277dd067d4c00f979fbf1c8eabc8b24269fc2b528cebb68325",
+    "distributed_sha256": "3ee0e7e4aa48ef277dd067d4c00f979fbf1c8eabc8b24269fc2b528cebb68325"
+  },
+  {
+    "class": "gde/ui/tab/DataTableWindow$1$2.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "ac869102f9ff6865b8db02eed5d656fd80ef0a74b7e904364bb92b4891a3e918",
+    "distributed_sha256": "ac869102f9ff6865b8db02eed5d656fd80ef0a74b7e904364bb92b4891a3e918"
+  },
+  {
+    "class": "gde/ui/tab/DataTableWindow$1$3.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "939b1e4a4a8906db20e4fa5412b4d142fb49a9113355ed67f8a295f6475421b4",
+    "distributed_sha256": "939b1e4a4a8906db20e4fa5412b4d142fb49a9113355ed67f8a295f6475421b4"
+  },
+  {
+    "class": "gde/ui/tab/DataTableWindow$1$4.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "7fe5a710c7984ac7ff5a974e9b56fa5c463d4fb15219f84ef46684e82188bb8a",
+    "distributed_sha256": "7fe5a710c7984ac7ff5a974e9b56fa5c463d4fb15219f84ef46684e82188bb8a"
+  },
+  {
+    "class": "gde/ui/tab/DataTableWindow$1.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "816fd20bbf08d127e79b1f3c44fc0e4b55d993667d76e4a7c952e61f2e764d72",
+    "distributed_sha256": "816fd20bbf08d127e79b1f3c44fc0e4b55d993667d76e4a7c952e61f2e764d72"
+  },
+  {
+    "class": "gde/ui/tab/DataTableWindow$2.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "947255aac8b1423b689674620651c4d49d8bffc44d587aaae431bb4dec3d0dcf",
+    "distributed_sha256": "947255aac8b1423b689674620651c4d49d8bffc44d587aaae431bb4dec3d0dcf"
+  },
+  {
+    "class": "gde/ui/tab/DataTableWindow$3.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "4435f43b43f546808145bf75b9edcb06f2020de5f24962bfceab106118205dc4",
+    "distributed_sha256": "4435f43b43f546808145bf75b9edcb06f2020de5f24962bfceab106118205dc4"
+  },
+  {
+    "class": "gde/ui/tab/DataTableWindow$4.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "2e69a83404aaef4c22fc93ee68b4f51085bae8c92d042f45c062ab92b1f43d13",
+    "distributed_sha256": "2e69a83404aaef4c22fc93ee68b4f51085bae8c92d042f45c062ab92b1f43d13"
+  },
+  {
+    "class": "gde/ui/tab/DataTableWindow$5.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "3f13e8412489b0e1fbb82b3d7030c8ab8e348f1d48df38e977627c722a32ff4e",
+    "distributed_sha256": "3f13e8412489b0e1fbb82b3d7030c8ab8e348f1d48df38e977627c722a32ff4e"
+  },
+  {
+    "class": "gde/ui/tab/DataTableWindow.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "a8821648fdf53da44552e0b6e63a78d07b66e2228d97a5c3953283ac0976e718",
+    "distributed_sha256": "a8821648fdf53da44552e0b6e63a78d07b66e2228d97a5c3953283ac0976e718"
+  },
+  {
+    "class": "gde/utils/CurveUtils.class",
+    "jar": "core",
+    "exact_class_bytes_match": true,
+    "compiled_sha256": "88c1e377296ae9df80a29ab9983883d28d360ae6f32f07b0b8f5892963c132d1",
+    "distributed_sha256": "88c1e377296ae9df80a29ab9983883d28d360ae6f32f07b0b8f5892963c132d1"
+  }
+]

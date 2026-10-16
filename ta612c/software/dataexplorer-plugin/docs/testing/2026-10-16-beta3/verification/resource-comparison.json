@@ -1,0 +1,20 @@
+[
+  {
+    "path": "gde/device/tasi/messages.properties",
+    "exact_bytes_match": true,
+    "sha256": "9ed411b466b02a492a751bc3a5f7aec2a5519eb3cffde545686f762229ff762a",
+    "identifier_line": "GDE_MSGT4102=TA612C-rec"
+  },
+  {
+    "path": "gde/device/tasi/messages_en.properties",
+    "exact_bytes_match": true,
+    "sha256": "9ed411b466b02a492a751bc3a5f7aec2a5519eb3cffde545686f762229ff762a",
+    "identifier_line": "GDE_MSGT4102=TA612C-rec"
+  },
+  {
+    "path": "gde/device/tasi/messages_de.properties",
+    "exact_bytes_match": true,
+    "sha256": "191f9b1bdf83cc34820a9743ff393a09b05f6f1431fbbc21c758d2a9cf94243c",
+    "identifier_line": "GDE_MSGT4102=TA612C-rec"
+  }
+]

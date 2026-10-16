@@ -1,0 +1,170 @@
+{
+  "method": "Codex offline rechecks of the publication copies; no new physical test or GUI action.",
+  "native_table_comparisons": [
+    {
+      "osd": "2026-10-16-T2-T4-beta3.osd",
+      "all_supplied_tables_match": true,
+      "records": [
+        {
+          "record_index": 1,
+          "rows": 118,
+          "temperature_values": 236
+        }
+      ],
+      "all_decoded_records_covered": true,
+      "time_comparison": "UI milliseconds; stored timestamps retain 0.1 ms."
+    },
+    {
+      "osd": "2026-10-16-table-retest-beta3.osd",
+      "all_supplied_tables_match": true,
+      "records": [
+        {
+          "record_index": 1,
+          "rows": 20,
+          "temperature_values": 40
+        }
+      ],
+      "all_decoded_records_covered": true,
+      "time_comparison": "UI milliseconds; stored timestamps retain 0.1 ms."
+    },
+    {
+      "osd": "2026-10-16-restart-retest-beta3.osd",
+      "all_supplied_tables_match": true,
+      "records": [
+        {
+          "record_index": 1,
+          "rows": 20,
+          "temperature_values": 40
+        }
+      ],
+      "all_decoded_records_covered": true,
+      "time_comparison": "UI milliseconds; stored timestamps retain 0.1 ms."
+    },
+    {
+      "osd": "2026-10-16-T4-disconnect-reconnect-beta3.osd",
+      "all_supplied_tables_match": true,
+      "records": [
+        {
+          "record_index": 1,
+          "rows": 14,
+          "temperature_values": 28
+        },
+        {
+          "record_index": 2,
+          "rows": 9,
+          "temperature_values": 9
+        },
+        {
+          "record_index": 3,
+          "rows": 29,
+          "temperature_values": 58
+        }
+      ],
+      "all_decoded_records_covered": true,
+      "time_comparison": "UI milliseconds; stored timestamps retain 0.1 ms."
+    },
+    {
+      "osd": "2026-10-16-REC-T2-T4-beta3.osd",
+      "all_supplied_tables_match": true,
+      "records": [
+        {
+          "record_index": 1,
+          "rows": 36,
+          "temperature_values": 72
+        }
+      ],
+      "all_decoded_records_covered": true,
+      "time_comparison": "UI milliseconds; stored timestamps retain 0.1 ms."
+    },
+    {
+      "osd": "2026-10-16-T1-T2-T3-T4-beta3.osd",
+      "all_supplied_tables_match": true,
+      "records": [
+        {
+          "record_index": 1,
+          "rows": 196,
+          "temperature_values": 784
+        }
+      ],
+      "all_decoded_records_covered": true,
+      "time_comparison": "UI milliseconds; stored timestamps retain 0.1 ms."
+    },
+    {
+      "osd": "2026-10-16-all-probes-absent-T3-return-beta3.osd",
+      "all_supplied_tables_match": true,
+      "records": [
+        {
+          "record_index": 1,
+          "rows": 20,
+          "temperature_values": 80
+        },
+        {
+          "record_index": 2,
+          "rows": 1,
+          "temperature_values": 3
+        },
+        {
+          "record_index": 3,
+          "rows": 51,
+          "temperature_values": 51
+        }
+      ],
+      "all_decoded_records_covered": true,
+      "time_comparison": "UI milliseconds; stored timestamps retain 0.1 ms."
+    },
+    {
+      "osd": "2026-10-16-USB-interrupted-T3-beta3.osd",
+      "all_supplied_tables_match": true,
+      "records": [
+        {
+          "record_index": 1,
+          "rows": 9,
+          "temperature_values": 9
+        }
+      ],
+      "all_decoded_records_covered": true,
+      "time_comparison": "UI milliseconds; stored timestamps retain 0.1 ms."
+    },
+    {
+      "osd": "2026-10-16-USB-recovery-T3-beta3.osd",
+      "all_supplied_tables_match": true,
+      "records": [
+        {
+          "record_index": 1,
+          "rows": 20,
+          "temperature_values": 20
+        }
+      ],
+      "all_decoded_records_covered": true,
+      "time_comparison": "UI milliseconds; stored timestamps retain 0.1 ms."
+    }
+  ],
+  "t1_rows_only": {
+    "rows": 75,
+    "values_and_displayed_times_match": true,
+    "headers_not_captured": true
+  },
+  "known_stale_header_rejected": true,
+  "legacy_payload_comparisons": [
+    {
+      "original": "test1-T1-live-and-REC.osd",
+      "resaved": "2026-10-16-legacy-T1-resaved-beta3.osd",
+      "record_sets": 5,
+      "rows": 1151,
+      "temperatures": 2220,
+      "payloads_epochs_presence_names_comments_identical": true,
+      "property_order_note": "The sparse T4-only legacy set moves T4 first in UI name order on resave; physical-name mappings and values are preserved."
+    },
+    {
+      "original": "test2-T2-T4-live-and-REC.osd",
+      "resaved": "2026-10-16-legacy-T2-T4-resaved-beta3.osd",
+      "record_sets": 8,
+      "rows": 1230,
+      "temperatures": 2378,
+      "payloads_epochs_presence_names_comments_identical": true,
+      "property_order_note": "The sparse T4-only legacy set moves T4 first in UI name order on resave; physical-name mappings and values are preserved."
+    }
+  ],
+  "legacy_count_note": "The first five sets in the second legacy file duplicate the first file; these are not 13 independent experiments.",
+  "original_beta_osds_unchanged": true
+}

@@ -1,0 +1,32 @@
+{
+  "repository": "https://git.savannah.nongnu.org/git/dataexplorer.git",
+  "commit": "a43484d58b4c106291a7140897e9a10388b45301",
+  "commit_record": [
+    "a43484d58b4c106291a7140897e9a10388b45301",
+    "2026-10-14 19:56:58 +0200",
+    "iCharger*DUO - disable program execution via dialog"
+  ],
+  "extracted_paths": [
+    "DataExplorer/src",
+    "Tasi/src"
+  ],
+  "files": {
+    "DataExplorer/src/gde/data/Channel.java": "34fff943ff119d39721301edfc10d2ec07f3ecc717d0d1afbb683a597bc6f109",
+    "DataExplorer/src/gde/data/Channels.java": "3b5df0f8f95483c0d241eb5c118703da75aced983bdf42464eeba72e01dc1ea8",
+    "DataExplorer/src/gde/data/Record.java": "94f4d0e24cea382e297703927062427d1d6a35bd0e09444060ba3ed691549d82",
+    "DataExplorer/src/gde/data/RecordSet.java": "ec333f9de85ac8e3a5ad1f42f791b1e2f09ddf6312b7aee6255910db45c32b29",
+    "DataExplorer/src/gde/data/TimeSteps.java": "e1fb8484f6fcbd12784d0ca63f24d3a4722f5f61b3a8f7a158824f10f82e0a2f",
+    "DataExplorer/src/gde/device/DeviceConfiguration.java": "d0da851d916d5700775ff92c366e5eb8506c9b94042e645c6dea1f881903b544",
+    "DataExplorer/src/gde/io/FileHandler.java": "309f854d7f65c0d73666031b39d6e6999fbc3646e4b5fe769e915f8ea34c367d",
+    "DataExplorer/src/gde/io/OsdReaderWriter.java": "c8f3c524d210a8bc676a59786db752ece40c1624eed99fe7da93450d945705df",
+    "DataExplorer/src/gde/ui/DataExplorer.java": "0d21e91b8a04cfc932d8b525950b20ebf07ddb0051b05ad1a10f9f7e0286890d",
+    "DataExplorer/src/gde/ui/dialog/DeviceSelectionDialog.java": "154079acd632a681e404cfd8cfa021ed9dc754d4136f35db3d1e284701abb366",
+    "DataExplorer/src/gde/ui/menu/MenuBar.java": "bbb03a4706bf732bad9350d1f4219b1cbd60c2aa1023c62e4aa383ee225ff0e9",
+    "DataExplorer/src/gde/ui/tab/DataTableWindow.java": "fc043f1d27fb7f957f81749e3cd2566a34377c8c39c57fbf414bb1206a53faea",
+    "DataExplorer/src/gde/utils/CurveUtils.java": "5db45d2032124638c319b617aa56cc0939271760d753fb444332bb224ebb3d4e",
+    "Tasi/src/gde/device/tasi/TA612C.java": "5185dc4451a96e021ddb7075d18215a4d1d8fb2c74193610af0a5f6f8ae3ba45",
+    "Tasi/src/gde/device/tasi/TA612CRecDialog.java": "9acefd7f3faf78a03bcf736d86a32b030bfcce50d7fc48e8231a9479bca1e54f",
+    "Tasi/src/gde/device/tasi/TA612CRecImport.java": "95c0574a48d7a14d943d98938f6ade23434929764e71d364f78cd99d62ee1b55"
+  },
+  "scope": "Hashes of the 14 compiled files plus two supporting source files. The complete local snapshot is not redistributed."
+}

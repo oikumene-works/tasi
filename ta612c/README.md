@@ -4,6 +4,10 @@ Open research, software and integration work for the TASI TA612C four-channel th
 
 ## Current state
 
+The [2026-10-16 DataExplorer 4.0.8 beta 3 test report](software/dataexplorer-plugin/docs/testing/2026-10-16-beta3/README.md)
+includes physical test results, three GUI reproductions, downloadable evidence
+and a separate source-analysis annex.
+
 The USB interface is usable on Linux as a 9600 baud, 8N1 serial connection through a CH340 USB-to-serial device. A physical TA612C with firmware 3.50 has been used to verify device-info, live-data and REC-download traffic.
 
 The current public work is divided into:

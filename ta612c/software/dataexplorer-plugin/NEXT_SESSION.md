@@ -1,9 +1,31 @@
 # TA612C project handoff
 
-Updated 2026-09-15 after the standalone project migration. Communicate with the
-user in Finnish; keep repository code and documentation in English.
+Updated 2026-10-16 for publication of the integrated beta test material.
+Communicate with the user in Finnish; keep repository code and documentation
+in English.
 
-## Accepted baseline
+## Current checkpoint: beta test report prepared for review
+
+The operator authorized one PR to `oikumene-works/tasi` containing the beta 3
+test report, selected evidence, editable test helpers and a separate source
+annex. Publication branch: `codex/beta3-test-report`. Base at preparation:
+`1f27ba5bdbe87fd83643ad06dd5145d52cc53279`.
+
+The [report](docs/testing/2026-10-16-beta3/README.md) owns the observations,
+attribution and limits. Its [evidence index](docs/testing/2026-10-16-beta3/EVIDENCE.md)
+links the separate GitHub attachment; physical OSD files are not committed.
+The [source annex](docs/testing/2026-10-16-beta3/SOURCE_ANALYSIS.md) records the
+three causes without fixes. Codex performed the software operations, data and
+source analysis, and drafting; the operator performed the physical actions and
+the final manual REC menu checks. No independent source review is claimed.
+
+Next allowed step is review of this material. Integration still needs the
+repository's separate review and project-owner decision. No merge, new hardware
+test, code fix or separate maintainer message is authorized by this publication.
+The [helpers](scripts/gui_test/README.md) are retained working aids for future
+DataExplorer work, not a frozen interface. They may be adapted as needed.
+
+## Historical accepted standalone baseline
 
 The bounded partial-probe slice is accepted. Short physical trials covered T1
 only and T2+T4, including live acquisition, meter REC, sparse OSD restoration,
@@ -41,7 +63,7 @@ The full test requires Xvfb. The ignored `local/tools/xvfb` copy is detected
 automatically. Set `DATAEXPLORER_ROOT` or `XVFB_RUN_BIN` only to override these
 local defaults.
 
-## Possible next slice
+## Earlier proposed next slice (not active)
 
 No further partial-probe work is required. A clean next slice would be visible
 REC-download progress plus an optional repeated read-only verification mode:
