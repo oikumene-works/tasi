@@ -5,6 +5,11 @@ internal REC memory, and native OSD saving/restoration. No upstream core, other
 plugin or master-build changes are required. Code and tests use the bundled
 DataExplorer 4.0.7 dependencies.
 
+The integrated DataExplorer 4.0.8 beta 3 was physically tested on 2026-10-16.
+See the [test report, reproduction evidence and separate source-analysis annex](docs/testing/2026-10-16-beta3/README.md).
+That report concerns the distributed beta; the standalone implementation here
+has not been changed as part of the report.
+
 ## Live acquisition
 
 Select TA612C and its serial port, then use Start/Stop. Live T1–T4 share one

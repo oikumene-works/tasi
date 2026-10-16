@@ -1,0 +1,524 @@
+[
+  {
+    "file": "recordings/2026-10-16-REC-T2-T4-beta3.osd",
+    "bytes": 1597,
+    "sha256": "4ea6759ec0a6941a1eb2c18ed24390c6319155b6168ee3bc077f0f84a6fba18f",
+    "records": [
+      {
+        "name": "1) REC inferred T2+T4",
+        "rows": 36,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 0.0,
+        "last_seconds": 175.0
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-T1-T2-T3-T4-beta3.osd",
+    "bytes": 2322,
+    "sha256": "05fb7290c95ac8b2fa425c56e3e2f727b29a1a34225f04cc7b0c8fd202ea26c7",
+    "records": [
+      {
+        "name": "1) live acquisition T1+T2+T3+T4",
+        "rows": 196,
+        "probes": [
+          "T1",
+          "T2",
+          "T3",
+          "T4"
+        ],
+        "epoch_ms": 1792117960395,
+        "first_seconds": 0.0,
+        "last_seconds": 299.1568
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-T1-beta3.osd",
+    "bytes": 1435,
+    "sha256": "961dbe9ddc67afdfd55424da559ea982be8cf842d08a33e15a648c9ee52a6415",
+    "records": [
+      {
+        "name": "1) live acquisition T1",
+        "rows": 75,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 1792110655862,
+        "first_seconds": 0.0,
+        "last_seconds": 113.6304
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-T2-T4-beta3.osd",
+    "bytes": 1743,
+    "sha256": "e749c90f0d678ed8dc8841b1c87f6c90392309e052d1711dab06efc1d4384de7",
+    "records": [
+      {
+        "name": "1) live acquisition T2+T4",
+        "rows": 118,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 1792111668076,
+        "first_seconds": 0.0,
+        "last_seconds": 179.5308
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-T4-disconnect-reconnect-beta3.osd",
+    "bytes": 1508,
+    "sha256": "7c49de59c46ff2156b86df676dad200596f71bd73517d626c1820467c1fc2b0e",
+    "records": [
+      {
+        "name": "1) live acquisition T2+T4",
+        "rows": 14,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 1792114544436,
+        "first_seconds": 0.0,
+        "last_seconds": 19.9611
+      },
+      {
+        "name": "2) live acquisition T2",
+        "rows": 9,
+        "probes": [
+          "T2"
+        ],
+        "epoch_ms": 1792114544436,
+        "first_seconds": 21.4947,
+        "last_seconds": 33.7891
+      },
+      {
+        "name": "3) live acquisition T2+T4",
+        "rows": 29,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 1792114544436,
+        "first_seconds": 35.3271,
+        "last_seconds": 78.2905
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-USB-interrupted-T3-beta3.osd",
+    "bytes": 1071,
+    "sha256": "45d725f80d1e62b599c083f2d6dfcfe6ca3bc972d498ae27a0a3909c51640a63",
+    "records": [
+      {
+        "name": "1) live acquisition T3",
+        "rows": 9,
+        "probes": [
+          "T3"
+        ],
+        "epoch_ms": 1792119329284,
+        "first_seconds": 0.0,
+        "last_seconds": 12.3116
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-USB-recovery-T3-beta3.osd",
+    "bytes": 1121,
+    "sha256": "0c9c269c389446d6fea91bc8534554c64dd41a888ea71ae71b6ac24183e62345",
+    "records": [
+      {
+        "name": "1) live acquisition T3",
+        "rows": 20,
+        "probes": [
+          "T3"
+        ],
+        "epoch_ms": 1792119620929,
+        "first_seconds": 0.0,
+        "last_seconds": 29.2268
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-all-probes-absent-T3-return-beta3.osd",
+    "bytes": 1582,
+    "sha256": "7645e5b05811aa1d4a51908ce8a82456a91a763fcddfe8169d2486e78edfaacd",
+    "records": [
+      {
+        "name": "1) live acquisition T1+T2+T3+T4",
+        "rows": 20,
+        "probes": [
+          "T1",
+          "T2",
+          "T3",
+          "T4"
+        ],
+        "epoch_ms": 1792118710640,
+        "first_seconds": 0.0,
+        "last_seconds": 29.2215
+      },
+      {
+        "name": "2) live acquisition T2+T3+T4",
+        "rows": 1,
+        "probes": [
+          "T2",
+          "T3",
+          "T4"
+        ],
+        "epoch_ms": 1792118710640,
+        "first_seconds": 30.7585,
+        "last_seconds": 30.7585
+      },
+      {
+        "name": "3) live acquisition T3",
+        "rows": 51,
+        "probes": [
+          "T3"
+        ],
+        "epoch_ms": 1792118710640,
+        "first_seconds": 53.8227,
+        "last_seconds": 130.6527
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-legacy-T1-resaved-beta3.osd",
+    "bytes": 10098,
+    "sha256": "7f8babce5c48688f5a7bb76ad888a6e88aeda084a53c4d2db0a964cbb7d4692c",
+    "records": [
+      {
+        "name": "1) REC inferred T1+T4",
+        "rows": 1069,
+        "probes": [
+          "T1",
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 0.0,
+        "last_seconds": 5340.0
+      },
+      {
+        "name": "2) REC inferred T4",
+        "rows": 37,
+        "probes": [
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 5345.0,
+        "last_seconds": 5525.0
+      },
+      {
+        "name": "3) REC inferred T1",
+        "rows": 6,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 8540.0,
+        "last_seconds": 8565.0
+      },
+      {
+        "name": "4) TA612C live T1",
+        "rows": 26,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 1789428837583,
+        "first_seconds": 0.0,
+        "last_seconds": 38.3924
+      },
+      {
+        "name": "5) REC inferred T1",
+        "rows": 13,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 5.0,
+        "last_seconds": 65.0
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-legacy-T2-T4-resaved-beta3.osd",
+    "bytes": 10806,
+    "sha256": "f1098a8b4ccb67641275b4efa430bd2a1bc591918e0c396507bca5f4d9b18c1c",
+    "records": [
+      {
+        "name": "1) REC inferred T1+T4",
+        "rows": 1069,
+        "probes": [
+          "T1",
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 0.0,
+        "last_seconds": 5340.0
+      },
+      {
+        "name": "2) REC inferred T4",
+        "rows": 37,
+        "probes": [
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 5345.0,
+        "last_seconds": 5525.0
+      },
+      {
+        "name": "3) REC inferred T1",
+        "rows": 6,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 8540.0,
+        "last_seconds": 8565.0
+      },
+      {
+        "name": "4) TA612C live T1",
+        "rows": 26,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 1789428837583,
+        "first_seconds": 0.0,
+        "last_seconds": 38.3924
+      },
+      {
+        "name": "5) REC inferred T1",
+        "rows": 13,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 5.0,
+        "last_seconds": 65.0
+      },
+      {
+        "name": "6) TA612C live T2+T4",
+        "rows": 45,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 1789429182550,
+        "first_seconds": 0.0,
+        "last_seconds": 67.5892
+      },
+      {
+        "name": "7) TA612C live T2+T4",
+        "rows": 25,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 1789429331338,
+        "first_seconds": 0.0,
+        "last_seconds": 36.9164
+      },
+      {
+        "name": "8) REC inferred T2+T4",
+        "rows": 9,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 0.0,
+        "last_seconds": 40.0
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-restart-retest-beta3.osd",
+    "bytes": 1132,
+    "sha256": "ebc1a1ba35f9ea8b5dcbf5fc6c1a9bc0f38de4d7a93e41c2cd9c087e59f328e3",
+    "records": [
+      {
+        "name": "1) live acquisition T2+T4",
+        "rows": 20,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 1792112980077,
+        "first_seconds": 0.0,
+        "last_seconds": 29.1534
+      }
+    ]
+  },
+  {
+    "file": "recordings/2026-10-16-table-retest-beta3.osd",
+    "bytes": 1120,
+    "sha256": "93c96cae30690166e1ea9393d994368b57d60d026ec3e084692da24d7f061f71",
+    "records": [
+      {
+        "name": "1) live acquisition T2+T4",
+        "rows": 20,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 1792112599891,
+        "first_seconds": 0.0,
+        "last_seconds": 29.1595
+      }
+    ]
+  },
+  {
+    "file": "reference-osd/test1-T1-live-and-REC.osd",
+    "bytes": 10017,
+    "sha256": "0321c9638e223a8bbd78077c33711d530663bfa4fc15c86fa81cfdabadf9881f",
+    "records": [
+      {
+        "name": "1) REC inferred T1+T4",
+        "rows": 1069,
+        "probes": [
+          "T1",
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 0.0,
+        "last_seconds": 5340.0
+      },
+      {
+        "name": "2) REC inferred T4",
+        "rows": 37,
+        "probes": [
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 5345.0,
+        "last_seconds": 5525.0
+      },
+      {
+        "name": "3) REC inferred T1",
+        "rows": 6,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 8540.0,
+        "last_seconds": 8565.0
+      },
+      {
+        "name": "4) TA612C live T1",
+        "rows": 26,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 1789428837583,
+        "first_seconds": 0.0,
+        "last_seconds": 38.3924
+      },
+      {
+        "name": "5) REC inferred T1",
+        "rows": 13,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 5.0,
+        "last_seconds": 65.0
+      }
+    ]
+  },
+  {
+    "file": "reference-osd/test2-T2-T4-live-and-REC.osd",
+    "bytes": 10709,
+    "sha256": "373901a453ed19781143549b5c96be6f5410c0f8a12ec6c6c19ed73eea1c1dca",
+    "records": [
+      {
+        "name": "1) REC inferred T1+T4",
+        "rows": 1069,
+        "probes": [
+          "T1",
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 0.0,
+        "last_seconds": 5340.0
+      },
+      {
+        "name": "2) REC inferred T4",
+        "rows": 37,
+        "probes": [
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 5345.0,
+        "last_seconds": 5525.0
+      },
+      {
+        "name": "3) REC inferred T1",
+        "rows": 6,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 8540.0,
+        "last_seconds": 8565.0
+      },
+      {
+        "name": "4) TA612C live T1",
+        "rows": 26,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 1789428837583,
+        "first_seconds": 0.0,
+        "last_seconds": 38.3924
+      },
+      {
+        "name": "5) REC inferred T1",
+        "rows": 13,
+        "probes": [
+          "T1"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 5.0,
+        "last_seconds": 65.0
+      },
+      {
+        "name": "6) TA612C live T2+T4",
+        "rows": 45,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 1789429182550,
+        "first_seconds": 0.0,
+        "last_seconds": 67.5892
+      },
+      {
+        "name": "7) TA612C live T2+T4",
+        "rows": 25,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 1789429331338,
+        "first_seconds": 0.0,
+        "last_seconds": 36.9164
+      },
+      {
+        "name": "8) REC inferred T2+T4",
+        "rows": 9,
+        "probes": [
+          "T2",
+          "T4"
+        ],
+        "epoch_ms": 0,
+        "first_seconds": 0.0,
+        "last_seconds": 40.0
+      }
+    ]
+  }
+]

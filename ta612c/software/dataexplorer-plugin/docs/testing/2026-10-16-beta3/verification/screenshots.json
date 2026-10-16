@@ -1,0 +1,45 @@
+{
+  "method": "Unmodified retained application/window captures; visually checked by Codex before publication.",
+  "files": [
+    {
+      "file": "images/final-round-rec-menu-fresh-dialog.png",
+      "sha256": "ebae96bf694868d2d8b5c04c44974d01390d7ca358a38822f7e3b6a1c764b050",
+      "bytes": 57590
+    },
+    {
+      "file": "images/final-round-rec-menu-after-osd.png",
+      "sha256": "127aab2084647aae4cfaf79f77dec618b39b9abaee1a65acf5577f003b16b49c",
+      "bytes": 60193
+    },
+    {
+      "file": "images/restart-retest-live-stale-table.png",
+      "sha256": "6639ef026a97ec130491c1ea5f9ea68c151bc38208627a74d803df6c3dd8900c",
+      "bytes": 75365
+    },
+    {
+      "file": "images/restart-retest-reopened-table.png",
+      "sha256": "9f0adb94415053197df6098d485bb6e800d02f93b97e5bd002e3c5511416f69b",
+      "bytes": 78757
+    },
+    {
+      "file": "images/rec-test-before-save-table.png",
+      "sha256": "5ea1cf6b8d413b887d0c73126865a1683f2f43f8c8399f159ba191666b11191b",
+      "bytes": 83872
+    },
+    {
+      "file": "images/rec-test-reopened-table.png",
+      "sha256": "b01ce3614dcb0cce3d3583f72d292dad8c48c3e2b963219788b33d804d7cd78e",
+      "bytes": 81591
+    },
+    {
+      "file": "images/all-probes-absent-reopened-T3-graph.png",
+      "sha256": "29d552e9fdab8cc9c3916b1abfbdbaa2fbd265d8091952be5789c2206335827c",
+      "bytes": 63102
+    },
+    {
+      "file": "images/usb-interruption-after-unplug-window-2.png",
+      "sha256": "08c27940f02fd518831e191fff00e0d2813421691a0af0aa73a2f450e264eccc",
+      "bytes": 20030
+    }
+  ]
+}
