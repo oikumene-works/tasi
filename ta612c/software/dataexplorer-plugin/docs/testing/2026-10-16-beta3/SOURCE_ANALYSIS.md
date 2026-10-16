@@ -1,13 +1,15 @@
-# Annex: source explanations for the three beta 3 findings
+# Annex: source explanations for the four beta 3 findings
 
 Prepared by Codex on 2026-10-16. This optional technical annex accompanies the
 [physical test report](README.md) and [reproduction steps](GUI_FINDINGS.md).
 It records causes without proposing fixes or assigning work to the maintainer.
 
-Source tracing explains all three reproduced behaviors in DataExplorer 4.0.8
+Source tracing explains four reproduced behaviors in DataExplorer 4.0.8
 beta 3: the REC action belongs to a different device instance from the active
 one, table rows refresh without rebuilding their headers, and curve drawing
 extends the first value to the left boundary before the first stored sample.
+The later saved-file follow-up found that menu/keyboard tab navigation changes
+selection without running the listener that refreshes Graphic.
 The earlier OSD checks established correct stored values and timestamps for the
 affected recordings; the table and curve findings concern their presentation.
 
@@ -43,9 +45,11 @@ DataTableWindow, RecordSet, Channel, CurveUtils, Record and TimeSteps.
 The three Tasi message bundles also match byte for byte.
 
 This establishes correspondence for those classes and resources; it does not
-claim a reproducible build of the entire distribution. The findings combine
-the earlier runtime observations with source and bytecode analysis. No debugger
-was attached to the live process and no new physical test was performed here.
+claim a reproducible build of the entire distribution. The first three findings
+combine the earlier runtime observations with source and bytecode analysis.
+No debugger was attached to their live acquisition process. The fourth finding
+adds saved-file UI runs and a read-only agent that captured SWT/model state in
+disposable processes. No new physical acquisition was performed for this analysis.
 
 [Binary identities][binary-id], [pinned source identities][source-id],
 [comparison command and result][compile], [class comparisons][classes] and
@@ -200,11 +204,64 @@ after zero. The generic core drawing path assumes a value is available at the
 left boundary. That combination explains the display extension. This analysis
 does not establish behavior in zoom, scope, comparison or GPS views.
 
+## Menu and keyboard tab navigation leave the previous Graphic cache visible
+
+**Observed behavior.** After opening a second saved OSD from Table, returning
+to Graphic through the View menu or Ctrl+PageUp retained the first file's curve
+image and selector. Pointer tab selection refreshed both. The second file's
+196 rows, four probe arrays and timestamps were already loaded and did not
+change during recovery. The [reproduction][graphic-refresh] uses the unchanged
+beta and two existing archive files.
+
+**Source cause.** The menu route changes selection without executing the
+application's tab-selection refresh:
+
+1. `MenuBar.java`, lines 968–990, connects previous/next tabulator and the
+   Ctrl+PageUp/PageDown accelerators to `switchPreviousTabulator()` and
+   `switchNextTabulator()`.
+2. `DataExplorer.java`, lines 3260–3289, changes the selected index by calling
+   `CTabFolder.setSelection(...)`. Neither switch method invokes the Selection
+   listener or explicitly refreshes the selected view.
+3. In the distributed SWT jar, public `CTabFolder.setSelection(int)` does not
+   notify Selection listeners. Its separate internal overload with a notify
+   argument performs that notification. This distinction was checked in the
+   shipped bytecode, not assumed from the method name.
+4. `DataExplorer.java`, lines 753–802, places view refresh and
+   `tabSelectedIndex` bookkeeping in its Selection listener. Selecting Graphic
+   through that listener calls `updateGraphicsWindow()`.
+5. `updateGraphicsWindow(boolean)`, lines 2095–2131, redraws the normal graph
+   only when Graphic is selected. Opening another OSD while Table is selected
+   therefore leaves the hidden graph image unchanged. Returning without the
+   Selection listener can expose that old image and selector.
+
+The twelve [snapshot extracts][graphic-refresh-evidence] show the missing
+listener path directly: after Ctrl+PageUp returned from Table to Graphic,
+the actual selected index was 0 while `tabSelectedIndex` remained 2. Pointer
+selection restored it to 0. The cached image bytes remained equal to the first
+file until pointer recovery; the active values and timestamps already belonged
+to the second file.
+
+`GraphicsWindow.redrawGraphics(true)` regenerates the curve image, captions and
+selector. `GraphicsComposite.doRedrawGraphics()` draws the current active record
+set into its cached image; the ordinary paint path can reuse that image.
+The working pointer route reaches the full refresh. The graph title/comment
+can therefore show current metadata while the unreplaced curve image still
+represents the earlier file.
+
+The earlier 171-class comparison includes DataExplorer and MenuBar. The
+additional GraphicsWindow/GraphicsComposite source identities and the SWT jar
+hash are retained with this follow-up; their relevant distributed bytecode was
+inspected without rebuilding or changing the application. Native Ctrl+PageDown
+return to Graphic was not separately tested, although its menu binding reaches
+the same next-tab method. No claim is made for other platforms or graph modes.
+
 ## Scope and source retrieval
 
-The three explanations are Codex source analysis supported by matching compiled
-classes and the earlier runtime evidence. No source fix, additional acquisition
-or debugger attachment was performed. This annex is published with the test
+The explanations are Codex source analysis supported by the scoped class
+comparison, distributed bytecode and runtime evidence described above. No
+source fix or additional acquisition was performed. The fourth finding's
+read-only agent attachment is distinct from the original source-only analysis.
+This annex is published with the test
 package at the operator's request; no separate maintainer message has been sent.
 The case-sensitive menu identifier observation above remains a source-only note.
 
@@ -237,6 +294,8 @@ the stated subset, not an independently reproduced whole distribution.
 - `DataExplorer/src/gde/ui/dialog/DeviceSelectionDialog.java`
 - `DataExplorer/src/gde/ui/menu/MenuBar.java`
 - `DataExplorer/src/gde/ui/tab/DataTableWindow.java`
+- `DataExplorer/src/gde/ui/tab/GraphicsWindow.java`
+- `DataExplorer/src/gde/ui/tab/GraphicsComposite.java`
 - `DataExplorer/src/gde/utils/CurveUtils.java`
 - `Tasi/src/gde/device/tasi/TA612C.java`
 - `Tasi/src/gde/device/tasi/TA612CRecDialog.java`
@@ -253,3 +312,5 @@ the stated subset, not an independently reproduced whole distribution.
 [absent-check]: verification/recordings.json
 [absent-graph]: images/all-probes-absent-reopened-T3-graph.png
 [transition-check]: verification/offline-recheck.json
+[graphic-refresh]: GUI_FINDINGS.md#graphic-retains-the-previous-file-after-returning-from-table
+[graphic-refresh-evidence]: verification/graphic-refresh.json

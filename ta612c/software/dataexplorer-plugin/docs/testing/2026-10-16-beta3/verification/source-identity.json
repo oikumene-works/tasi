@@ -26,7 +26,9 @@
     "DataExplorer/src/gde/utils/CurveUtils.java": "5db45d2032124638c319b617aa56cc0939271760d753fb444332bb224ebb3d4e",
     "Tasi/src/gde/device/tasi/TA612C.java": "5185dc4451a96e021ddb7075d18215a4d1d8fb2c74193610af0a5f6f8ae3ba45",
     "Tasi/src/gde/device/tasi/TA612CRecDialog.java": "9acefd7f3faf78a03bcf736d86a32b030bfcce50d7fc48e8231a9479bca1e54f",
-    "Tasi/src/gde/device/tasi/TA612CRecImport.java": "95c0574a48d7a14d943d98938f6ade23434929764e71d364f78cd99d62ee1b55"
+    "Tasi/src/gde/device/tasi/TA612CRecImport.java": "95c0574a48d7a14d943d98938f6ade23434929764e71d364f78cd99d62ee1b55",
+    "DataExplorer/src/gde/ui/tab/GraphicsWindow.java": "3ab320a5d90f794b6d44a4e63687c82903b451fef7b171f3c14116a39bd625fc",
+    "DataExplorer/src/gde/ui/tab/GraphicsComposite.java": "da39ca2e2de47bd2978a8693b9e577a9103294fde8acca2bcd9ff90284304dc5"
   },
   "scope": "Hashes of the 14 compiled files plus two supporting source files. The complete local snapshot is not redistributed."
 }
