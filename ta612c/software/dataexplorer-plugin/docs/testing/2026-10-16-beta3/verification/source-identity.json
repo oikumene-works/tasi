@@ -30,5 +30,5 @@
     "DataExplorer/src/gde/ui/tab/GraphicsWindow.java": "3ab320a5d90f794b6d44a4e63687c82903b451fef7b171f3c14116a39bd625fc",
     "DataExplorer/src/gde/ui/tab/GraphicsComposite.java": "da39ca2e2de47bd2978a8693b9e577a9103294fde8acca2bcd9ff90284304dc5"
   },
-  "scope": "Hashes of the 14 compiled files plus two supporting source files. The complete local snapshot is not redistributed."
+  "scope": "Hashes of the 14 compiled files plus four supporting source files. GraphicsWindow.java and GraphicsComposite.java were added for the saved-file refresh follow-up and inspected without recompilation. The complete local snapshot is not redistributed."
 }
