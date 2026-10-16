@@ -40,6 +40,16 @@
       "file": "images/usb-interruption-after-unplug-window-2.png",
       "sha256": "08c27940f02fd518831e191fff00e0d2813421691a0af0aa73a2f450e264eccc",
       "bytes": 20030
+    },
+    {
+      "file": "images/osd-refresh-stale-graphic.png",
+      "sha256": "2cf28458358d35f4f4103e7ebe202d82a00a9149a7426c079a3d92c43740a797",
+      "bytes": 74646
+    },
+    {
+      "file": "images/osd-refresh-after-pointer-selection.png",
+      "sha256": "dd50eff95508547d6bffd24ad1042459d740276048c9d09960aba40ddda83ec3",
+      "bytes": 90018
     }
   ]
 }

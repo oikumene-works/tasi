@@ -29,13 +29,24 @@ open the all-probes-absent file and select its third record set; no meter is
 required. The table and REC-menu findings require the sequences in
 [GUI_FINDINGS.md](GUI_FINDINGS.md), not merely opening a finished recording.
 
+The later stale-Graphic reproduction uses the archive's existing
+`2026-10-16-USB-recovery-T3-beta3.osd` and
+`2026-10-16-T1-T2-T3-T4-beta3.osd`. Their hashes matched the published inventory;
+the archive and its checksum are unchanged. The follow-up adds two unchanged
+captures of the original beta and [twelve snapshot extracts](verification/graphic-refresh.json)
+in Git. The extracts include the loaded values/times, native four-probe table,
+tab bookkeeping and cached-image hashes. Original capture hashes are retained;
+process-local identity numbers and window-title details are omitted. No private
+GUI implementation or application binary is included.
+
 ## Evidence in Git
 
 | Material | Purpose |
 |---|---|
 | [Recording inventory](verification/recordings.json) | Every attached OSD's size/hash, record sets, present channels and first/last times |
 | [Offline recheck](verification/offline-recheck.json) | Nine complete native-table comparisons, T1 row-only comparison, stale-header rejection and two legacy round-trip comparisons |
-| [Screenshot identities](verification/screenshots.json) | SHA-256 and size of the eight original captures in `images/` |
+| [Screenshot identities](verification/screenshots.json) | SHA-256 and size of the ten unchanged captures in `images/`, including the two saved-file follow-up captures |
+| [Graphic refresh inspection](verification/graphic-refresh.json) | Twelve original-beta stages, two loaded models, native table and cache/selection checks; no new acquisition |
 | [Beta binary identity](verification/binary-identity.json) | Tested core and plugin manifests and SHA-256 |
 | [Source identity](verification/source-identity.json) | Upstream commit and hashes for the relevant source files |
 | [Compilation record](verification/comparison-compile.json) | Recorded successful comparison invocation with symbolic paths |

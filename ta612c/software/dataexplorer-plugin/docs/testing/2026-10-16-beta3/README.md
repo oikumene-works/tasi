@@ -2,10 +2,12 @@
 
 On 2026-10-16 the integrated TA612C plugin recorded the connected probes,
 imported an operator-made REC recording and preserved the checked OSD values
-and timestamps. Three GUI problems were reproduced: the REC menu stopped
+and timestamps. Four GUI problems were reproduced: the REC menu stopped
 opening its dialog after an OSD was opened, table headers could describe the
 wrong probes, and later live segments acquired a drawn line before their first
-stored sample. These findings remain open; this package contains no fixes.
+stored sample. A later saved-file follow-up reproduced an old curve and selector
+after opening another OSD from Table and returning through the View menu or
+Ctrl+PageUp. These findings remain open; this package contains no fixes.
 
 Start with [the findings and reproduction steps](GUI_FINDINGS.md). The
 [source explanations](SOURCE_ANALYSIS.md) are a separate optional annex.
@@ -24,6 +26,12 @@ readbacks, investigated the source and prepared this report and its attachments.
 There was no independent human review of the source analysis or automated data
 comparisons. Operator reports and Codex-derived measurements are distinguished
 below. Finger warming checks channel identity and response, not calibration.
+
+Codex alone performed the later saved-file refresh reproduction, read-only
+model/cache inspection and source tracing. It used the unchanged beta in an
+isolated profile on a 1280×720, 96-DPI Xvfb display with GTK3/X11 and made no new
+physical acquisition. The screenshots for that finding show this unmodified
+beta. The same two OSD files are already in the original evidence archive.
 
 ## Tested environment
 
@@ -78,6 +86,7 @@ has millisecond precision; OSD stores 0.1 ms units.
 | Combined USB and power loss | Operator unplugged USB and reported that the meter immediately powered off. DataExplorer stopped, released serial and retained nine T3 samples over 12.3116 s. | Notice explained connection loss and retained data. Codex had not pressed Stop and its stop timer had not fired. This was not isolated data-link loss. |
 | Recovery after reconnection | Operator restored USB/power and reported T3 at 23.2 °C. Codex explicitly started a new acquisition in the same application process. | Twenty T3 samples over 29.2268 s, 23.2–23.3 °C; save/reopen matched. No application restart or automatic retry. |
 | Earlier OSD compatibility | Two September files contained 5 and 8 sets: 2,381 rows and 4,598 temperatures across file entries. Native open/resave preserved values, times, epochs, physical probe masks, names and comments. | First five sets in the second file duplicate the first file; counts are not independent experiments. Sparse T4 metadata moved T4 first in UI name order without changing physical mappings. |
+| Saved OSD view refresh | Open the 20-row T3 recovery file, then the 196-row four-probe file from Table. Return to Graphic through the View menu or Ctrl+PageUp. | The old T3 image/selector remained while the new values and times were already loaded. Pointer tab selection refreshed both; no loaded-data change was observed. |
 
 The [recording inventory](verification/recordings.json) supplies exact filenames,
 hashes, sizes and segment times. [Offline publication checks](verification/offline-recheck.json)
@@ -110,11 +119,14 @@ cancelled physical downloads and transfer limits were not newly exercised here.
 The older standalone automated suite is separate evidence; it was not rerun
 against this distributed beta. Packaging did not change production Java code.
 
-The source annex explains all three observed GUI behaviors against pinned
-upstream source. Fourteen unmodified source files produced 171 classes matching
+The source annex explains the four observed GUI behaviors against pinned
+upstream source. The original comparison of fourteen unmodified files produced
+171 classes matching
 the distributed beta byte for byte; three message bundles also matched. This
 does not claim a reproducible build of the entire application or independent
-human verification of the explanation.
+human verification of the explanation. The refresh follow-up also inspected
+the distributed tab-selection bytecode and captured the active model and cached
+image through a read-only agent in disposable test processes.
 
 The retained test application was stopped with serial closed after the final
 recovery measurement. The helpers are editable working aids saved for continued

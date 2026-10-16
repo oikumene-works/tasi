@@ -1,10 +1,14 @@
-# Three reproduced GUI findings in beta 3
+# Four reproduced GUI findings in beta 3
 
 These observations concern the build identified in the [test report](README.md).
 Codex operated DataExplorer, inspected native state and saved files, and wrote
 this report. The operator handled the physical meter and probes and personally
 clicked the REC menu in the final menu test. The [source analysis](SOURCE_ANALYSIS.md)
 is separate, so the reproductions can be assessed without its explanations.
+
+The fourth finding was added after a saved-file follow-up on the same day.
+Codex performed that follow-up without a new physical acquisition, using the
+unchanged distributed beta and an isolated profile.
 
 ## REC menu does not open after an OSD is opened
 
@@ -108,10 +112,57 @@ The same behavior appeared in the second and third sets of
 shared elapsed-time axis. Zoom, scope, comparison and GPS views were not tested
 for this finding.
 
+## Graphic retains the previous file after returning from Table
+
+**Effect:** the title and comment can describe the newly opened file while the
+curve, axes and curve-selector list still show the previous file. The new data
+is already loaded, so the visible graph can misidentify the measurement being
+displayed.
+
+Reproduction using two files already in the evidence archive, without starting
+meter acquisition:
+
+1. Start the unchanged beta with TA612C selected. On Graphic, open
+   `2026-10-16-USB-recovery-T3-beta3.osd`. It contains 20 T3 rows over 29.2268 s,
+   ranging from 23.2 to 23.3 °C.
+2. Click Table, then use File > Open to open
+   `2026-10-16-T1-T2-T3-T4-beta3.osd`. It contains 196 rows over 299.1568 s.
+3. Press **Ctrl+PageUp twice** to return to Graphic through Statistics.
+
+Expected: the graph and selector display T1–T4 from the second file. Observed:
+the approximately 30-second T3-only curve and selector remain, although the
+record-set title and comment now identify the four-probe data. Returning through
+**View > previous tabulator** also reproduced the failure; that menu sequence
+visited Digital before returning. The native Table had Time and T1–T4 columns
+with 196 rows, and Digital showed the current four-probe set.
+
+![Previous T3 curve beneath the new four-probe title](images/osd-refresh-stale-graphic.png)
+
+**Verified workaround:** click Statistics and then Graphic with the pointer.
+Both the curve image and selector refresh. Directly clicking Graphic after
+opening the second file from Table also worked. A restart was not required.
+
+![Four-probe curve after pointer tab selection](images/osd-refresh-after-pointer-selection.png)
+
+Codex compared twelve snapshots of the unmodified beta. While the curve was
+stale, the second file's loaded values and timestamps were identical to those
+after pointer recovery. The graph's cached pixel hash still matched the first
+file exactly. Pointer recovery replaced the image and restored T1–T4 in the
+selector. [The snapshot extracts](verification/graphic-refresh.json) retain
+these checks and the native table. This observed mismatch concerns presentation;
+no loaded-data loss or alteration was found in the reproduction.
+
+This follow-up used Linux GTK3/X11 on a 1280×720, 96-DPI virtual display. Native
+menu actions, pointer clicks and keyboard events performed navigation; a
+read-only inspection agent captured the model and cache on the SWT thread.
+It did not change selection, redraw the graph or modify measurement data.
+Other devices, platforms and graph modes were not tested. Native Ctrl+PageDown
+return to Graphic was not separately tested. No application fix is included.
+
 ## Supporting interruption result
 
-The USB test is included as a successful recovery observation, not a fourth GUI
-finding. The operator reported simultaneous meter power loss on unplugging USB.
+The USB test is included as a successful recovery observation. The operator
+reported simultaneous meter power loss on unplugging USB.
 DataExplorer retained the collected T3 values and displayed this notice:
 
 ![Connection loss notice preserving collected data](images/usb-interruption-after-unplug-window-2.png)
