@@ -1,5 +1,9 @@
 # Accepted baseline — 2026-09-15
 
+Historical baseline record. The 2026-11-02 segment-time corrections and their
+software-only validation are documented in the
+[current correction record](docs/testing/2026-11-02-time-model/README.md).
+
 The first repository baseline is the accepted standalone TA612C plugin for
 DataExplorer 4.0.7. It includes read-only REC download and live acquisition with
 partially connected probes.

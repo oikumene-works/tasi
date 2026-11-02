@@ -1,5 +1,9 @@
 # Validation — live missing-probe continuation, 2026-09-15
 
+Historical baseline record. The 2026-11-02 segment-time corrections and their
+software-only validation are documented in the
+[current correction record](docs/testing/2026-11-02-time-model/README.md).
+
 Decision: **the bounded partial-probe slice is accepted. T1-only and T2+T4 data
 acquisition, REC capture and sparse OSD restoration passed short physical trials.
 The final T2+T4 retest also showed advancing values, table and graph with T1

@@ -7,13 +7,18 @@ DataExplorer 4.0.7 dependencies.
 
 The integrated DataExplorer 4.0.8 beta 3 was physically tested on 2026-10-16.
 See the [test report, reproduction evidence and separate source-analysis annex](docs/testing/2026-10-16-beta3/README.md).
-That report concerns the distributed beta; the standalone implementation here
-has not been changed as part of the report.
+That report concerns the distributed beta and remains historical evidence.
+
+On 2026-11-02, Codex implemented and tested the segment-time corrections in a
+separate beta 4 revision, then adapted them to this standalone module at the
+operator's request. See the [current correction and validation record](docs/testing/2026-11-02-time-model/README.md),
+including the separately applicable beta 4 source patch. The new corrections
+have software validation only; the September physical acceptance is historical.
 
 ## Live acquisition
 
-Select TA612C and its serial port, then use Start/Stop. Live T1–T4 share one
-variable host-receive time base. A raw value of 28000 means that probe is open.
+Select TA612C and its serial port, then use Start/Stop. Live T1–T4 use variable
+host-receive times, with each probe-mask segment starting at relative zero. A raw value of 28000 means that probe is open.
 The session continues with every probe that is present; a new native RecordSet
 starts whenever the presence mask changes. Open probes remain empty and hidden,
 never replaced by zero, the sentinel or a previous value. A frame with all four
@@ -21,9 +26,12 @@ probes open updates connection activity but adds no temperature row. Reconnectin
 a probe starts another segment without requiring a manual restart. Zero and
 negative values are valid.
 
-The common live epoch is the host receipt time of the first decoded frame in the
-acquisition, including an all-open frame. Thus later segments retain their offset
-on the same receive-time axis and a period with no probes is not compressed away.
+The acquisition anchor is the host receipt time of the first decoded frame,
+including an all-open frame. Each segment receives its own epoch: that anchor
+plus the monotonic offset of its first frame, rounded to whole milliseconds.
+Relative time is measured from the segment's first frame. Probe-change and
+all-open gaps therefore remain on the acquisition timeline without leading
+empty time inside a new segment. Later wall-clock adjustments do not shift it.
 Silence, USB/serial failure and manual Stop retain their existing bounded stop and
 cleanup behavior. Device construction registers a closed serial backend for port
 discovery before Start; it sends no commands.
@@ -82,19 +90,26 @@ REC payloads contain temperature sample groups. The inspected protocol does not
 provide a sampling interval, recording start time, per-sample timestamps, sample
 sequence numbers, total sample count or a proven transfer-end marker.
 
-The imported time is **inferred** as `original_sample_index * user_interval`.
+The imported time is **inferred**. Each segment starts at zero:
+`(original_sample_index - segment_first_index) * user_interval`.
+Its saved description retains `segment_first_index * user_interval` as the
+segment offset. Offset plus segment time reconstructs recording-relative time.
 The local Python logger's default five seconds and its CSV `elapsed_s` column
 are the same assumption, not independent device evidence. No actual recording
 interval has been established from the supplied sources. Enter the recording
 setting only if known; Cancel otherwise. Changing the REC interval does not change
 the live device configuration.
 
-Each REC name says `REC inferred`; each description records the supplied interval,
-original sample/frame ranges, missing-data ranges, and unverified completion.
+Each REC name says `REC inferred`; each REC v2 description records the supplied
+interval, original sample/frame ranges, segment offset, missing-data ranges and
+unverified completion.
 The absolute recording time is unknown. OSD requires a numeric epoch, so REC sets
 use **epoch 0 (1970) as an explicit unknown-time placeholder**, never the download
 time. Absolute-time views must not be interpreted as real recording dates. These
-labels and metadata survive OSD save, reopen and resave.
+labels and metadata survive OSD save, reopen and resave. Absolute-date comparison
+cannot automatically align the separate REC segments; their recording positions
+are in the descriptions. Removing that text removes the additional provenance.
+Older OSD files retain their stored times and descriptions; no migration occurs.
 
 The downloader waits up to five seconds for the first byte, then ends after
 1.5 seconds without **bytes**. This follows the Python silence heuristic, while
@@ -117,8 +132,8 @@ The user explicitly chose to retain valid measurements from partially connected
 probes. A new native record set starts whenever the set of present probes changes.
 Each segment retains the T1–T4 definitions; only present probes have points.
 Absent probes stay empty and hidden, never replaced by zero, the sentinel or a
-previous value. The original sample indices remain on the shared inferred time
-axis; segments prevent curves from bridging a probe-availability transition.
+previous value. Original sample indices and inferred offsets remain in the saved
+descriptions. Segments prevent curves from bridging a probe-availability change.
 
 Groups with all four probes absent have no temperature points to import. Their
 original ranges are listed in every segment's description. If every group is
@@ -212,7 +227,8 @@ running application. Generated build output is disposable. Local instrument
 evidence, accepted binaries and dependency trees belong under the ignored
 `local/` directory, never under `build/`.
 
-See `VALIDATION.md` for measured results, `RELEASE.md` for the accepted baseline,
+See the [current validation record](docs/testing/2026-11-02-time-model/README.md),
+`VALIDATION.md` for historical physical results, `RELEASE.md` for the earlier baseline,
 and `NEXT_SESSION.md` for the current handoff. Automated CSV replays reconstruct
 synthetic frames; they do not establish wire-level correctness or actual timing
 on the meter.

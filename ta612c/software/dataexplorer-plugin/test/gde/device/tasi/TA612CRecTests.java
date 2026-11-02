@@ -183,12 +183,20 @@ final class TA612CRecTests {
         var channel = Channels.getInstance().get(1); channel.clear();
         long expectedPoints = result.samples().stream().mapToLong(s -> Integer.bitCount(s.validMask())).sum();
         long actualPoints = 0;
+        int nextSample = 0;
         for (RecordSet records : sets) {
+            while (result.samples().get(nextSample).validMask() == 0) ++nextSample;
+            int first = nextSample;
+            int mask = result.samples().get(first).validMask();
+            while (nextSample < result.samples().size() && result.samples().get(nextSample).validMask() == mask) ++nextSample;
+            check(records.getRecordDataSize(true) == nextSample - first, "source segment size");
+            check(records.getTime_ms(0) == 0, "every REC segment begins at zero");
             check(records.getStartTimeStamp() == 0, "unknown absolute time, no download epoch");
             check(records.getRecordSetDescription().contains("NOT read from meter") && records.getRecordSetDescription().contains("completeness unverified"), "timing/completion provenance");
             for (int i = 0; i < records.getRecordDataSize(true); ++i) {
-                int sample = (int) (records.getTime_ms(i) / intervalMs);
-                check(records.getTime_ms(i) == (long) sample * intervalMs, "original sample timeline");
+                int sample = first + i;
+                check(records.getTime_ms(i) == (long) i * intervalMs, "segment-relative time");
+                check(first * intervalMs + records.getTime_ms(i) == (long) sample * intervalMs, "reconstructed original sample timeline");
                 for (int p = 0; p < 4; ++p) if ((result.samples().get(sample).validMask() & (1 << p)) != 0) {
                     check(TA612CRecImport.probe(records, p).realGet(i) == result.samples().get(sample).point(p), "present probe value retained"); ++actualPoints;
                 } else check(TA612CRecImport.probe(records, p).realSize() == 0 && !TA612CRecImport.probe(records, p).isDisplayable(), "absent probe has no replacement points");
@@ -323,6 +331,26 @@ final class TA612CRecTests {
         targetDevice.addRecMenu(menu); targetDevice.addRecMenu(menu);
         check(menu.getItemCount() == 2 && menu.getItem(1).getText().contains("REC"), "REC menu installed once");
         menu.dispose();
+        Menu repeated = new Menu(GDE.shell, SWT.POP_UP);
+        try {
+            var unrelated = new org.eclipse.swt.widgets.MenuItem(repeated, SWT.PUSH);
+            unrelated.setData("another-device");
+            unrelated.setText("Unrelated action");
+            targetDevice.addRecMenu(repeated);
+            check(repeated.getItemCount() == 3, "one separator/action beside unrelated entry");
+            var action = repeated.getItem(2);
+            String label = action.getText();
+            check("ta612c-rec".equals(action.getData()), "REC action marker matches setup guard");
+            for (int repeat = 0; repeat < 20; ++repeat) {
+                targetDevice.addRecMenu(repeated);
+                check(repeated.getItemCount() == 3, "repeated setup does not duplicate REC menu");
+                check(repeated.getItem(0) == unrelated && repeated.getItem(2) == action, "existing items retained");
+                check(label.equals(action.getText()), "existing label retained");
+                check(action.getListeners(SWT.Selection).length == 1, "only one REC selection listener");
+            }
+        } finally {
+            repeated.dispose();
+        }
         GDE.display.asyncExec(() -> {
             Shell dialog = GDE.display.getActiveShell();
             for (var child : dialog.getChildren()) if (child instanceof Text entry) {

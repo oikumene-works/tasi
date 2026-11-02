@@ -1,0 +1,222 @@
+--- a/Tasi/src/gde/device/tasi/TA612CGathererThread.java
++++ b/Tasi/src/gde/device/tasi/TA612CGathererThread.java
+@@ -25,6 +25,7 @@
+ 
+ import java.io.IOException;
+ import java.util.List;
++import java.util.function.LongSupplier;
+ 
+ /**
+  * Owns a live acquisition's connect/request/read/close lifecycle off the SWT
+@@ -50,8 +51,10 @@
+     public interface Listener {
+         /**
+          * Receives every valid frame, including all-open frames. Elapsed time is
+-         * monotonic milliseconds from the first decoded frame; its wall-clock
+-         * epoch is shared by all subsequent probe-availability segments.
++         * monotonic milliseconds from the first frame of the current probe-mask
++         * segment. Its epoch is the acquisition's wall-clock anchor plus that
++         * frame's monotonic offset, rounded to the nearest whole millisecond.
++         * All-open frames still terminate a segment but create no RecordSet.
+          */
+         void onSample(TA612CFrameDecoder.Sample sample, double elapsedMs, long firstSampleEpochMs);
+         /** Reports termination after attempted cleanup, including close failures. */
+@@ -62,6 +65,8 @@
+     private final Listener listener;
+     private final long silenceNanos;
+     private final int maxRestarts;
++    private final LongSupplier nanoTime;
++    private final LongSupplier wallTimeMillis;
+     private volatile boolean stopRequested;
+ 
+     /** Configures the accepted live policy: 1.5 s silence and three restarts. */
+@@ -71,11 +76,19 @@
+ 
+     /** Injects silence/restart bounds for tests without changing the wire command. */
+     TA612CGathererThread(Transport transport, Listener listener, long silenceMs, int maxRestarts) {
++        this(transport, listener, silenceMs, maxRestarts, System::nanoTime, System::currentTimeMillis);
++    }
++
++    /** Injects clocks for deterministic time-model tests; production uses host clocks. */
++    TA612CGathererThread(Transport transport, Listener listener, long silenceMs, int maxRestarts,
++            LongSupplier nanoTime, LongSupplier wallTimeMillis) {
+         super("TA612C live acquisition");
+         this.transport = transport;
+         this.listener = listener;
+         this.silenceNanos = silenceMs * 1_000_000L;
+         this.maxRestarts = maxRestarts;
++        this.nanoTime = nanoTime;
++        this.wallTimeMillis = wallTimeMillis;
+     }
+ 
+     /** Requests cooperative cancellation and wakes sleeps; the worker owns close. */
+@@ -99,12 +112,15 @@
+         long firstSampleNanos = 0;
+         long firstSampleEpochMs = 0;
+         boolean firstSample = true;
++        long segmentStartNanos = 0;
++        long segmentEpochMs = 0;
++        int segmentMask = -1;
+         try {
+             if (stopRequested) return;
+             transport.connect();
+             if (stopRequested) return;
+             transport.startLive();
+-            long lastActivity = System.nanoTime();
++            long lastActivity = nanoTime.getAsLong();
+             int restarts = 0;
+             while (!stopRequested) {
+                 List<TA612CFrameDecoder.Sample> samples;
+@@ -115,24 +131,33 @@
+                 }
+                 for (TA612CFrameDecoder.Sample sample : samples) {
+                     if (stopRequested) break;
+-                    long now = System.nanoTime();
++                    long now = nanoTime.getAsLong();
+                     if (firstSample) {
+                         firstSampleNanos = now;
+-                        firstSampleEpochMs = System.currentTimeMillis();
++                        firstSampleEpochMs = wallTimeMillis.getAsLong();
+                         firstSample = false;
+                     }
+-                    listener.onSample(sample, (now - firstSampleNanos) / 1_000_000.0, firstSampleEpochMs);
++                    if (sample.validMask() != segmentMask) {
++                        segmentMask = sample.validMask();
++                        segmentStartNanos = now;
++                        // Keep the acquisition's monotonic timeline, including periods
++                        // with no probes. Re-reading wall time here could introduce
++                        // clock-adjustment jumps or UI-processing delays into the data.
++                        segmentEpochMs = firstSampleEpochMs
++                                + Math.round((now - firstSampleNanos) / 1_000_000.0);
++                    }
++                    listener.onSample(sample, (now - segmentStartNanos) / 1_000_000.0, segmentEpochMs);
+                     lastActivity = now;
+                     restarts = 0;
+                 }
+                 if (stopRequested) break;
+-                if (System.nanoTime() - lastActivity >= silenceNanos) {
++                if (nanoTime.getAsLong() - lastActivity >= silenceNanos) {
+                     if (restarts == maxRestarts) {
+                         throw new IOException(Messages.getString(MessageIds.GDE_MSGE4111, new Object[] {maxRestarts}));
+                     }
+                     transport.startLive();
+                     ++restarts;
+-                    lastActivity = System.nanoTime();
++                    lastActivity = nanoTime.getAsLong();
+                 }
+                 Thread.sleep(10);
+             }
+--- a/Tasi/src/gde/device/tasi/TA612CRecImport.java
++++ b/Tasi/src/gde/device/tasi/TA612CRecImport.java
+@@ -64,9 +64,10 @@
+ 
+     /**
+      * Builds all fixed-mask segments before the caller inserts any into a channel.
+-     * Elapsed time uses the original zero-based sample index times intervalMs,
+-     * preserving offsets across all-open ranges; epoch zero explicitly denotes
+-     * an unknown recording date. Empty/all-open input yields no RecordSets and
++     * Each segment starts at relative zero. Its original sample indices and
++     * inferred recording offset remain in the persisted description, preserving
++     * all-open gaps without using a fictitious date. Epoch zero explicitly
++     * denotes an unknown recording date. Empty/all-open input yields no RecordSets and
+      * does not prove empty meter memory. The result's completeness caveat is
+      * copied into every segment's persisted description.
+      *
+@@ -109,13 +110,14 @@
+ 										absentRanges, 
+ 										result.completionDescription(), 
+ 										result.frames(), 
+-										result.emptyFrames() }));
++										result.emptyFrames(),
++										BigDecimal.valueOf(first * intervalMs, 3).stripTrailingZeros().toPlainString() }));
+ 						for (int i = first; i < end; ++i) {
+ 							int[] points = new int[Integer.bitCount(mask)];
+ 							int column = 0;
+ 							for (int p = 0; p < 4; ++p)
+ 								if ((mask & (1 << p)) != 0) points[column++] = samples.get(i).point(p);
+-							records.addTimeStep_ms(i * intervalMs);
++							records.addTimeStep_ms((i - first) * intervalMs);
+ 							records.addNoneCalculationRecordsPoints(points);
+ 						}
+ 						device.makeInActiveDisplayable(records);
+--- a/Tasi/src/gde/device/tasi/messages.properties
++++ b/Tasi/src/gde/device/tasi/messages.properties
+@@ -131,7 +131,7 @@
+ # range 0000 to 1000 reserved for base OSDE code 
+ GDE_MSGT4100=Start TA612C live acquisition (available probes are recorded)
+ GDE_MSGT4101=Stop TA612C acquisition / cancel REC download
+-GDE_MSGT4102=TA612C-rec
++GDE_MSGT4102=ta612c-rec
+ GDE_MSGT4103=Download TA612C REC memory... / Cancel REC
+ GDE_MSGT4104=Stop live acquisition before downloading REC memory
+ GDE_MSGT4105=REC download cancelled. Nothing imported
+@@ -147,10 +147,11 @@
+ GDE_MSGT4111=Download REC
+ GDE_MSGT4112=Cancel
+ GDE_MSGT4113=) REC inferred {0}
+-GDE_MSGT4114=TA612C REC v1. INFERRED TIME; absolute recording time UNKNOWN.\n\
+-Interval {0} s supplied by user, NOT read from meter. Elapsed = original zero-based sample index * interval \n\
++GDE_MSGT4114=TA612C REC v2. INFERRED TIME; absolute recording time UNKNOWN.\n\
++Interval {0} s supplied by user, NOT read from meter. Segment elapsed = (original sample index - first index of segment) * interval; each segment starts at zero.\n\
+ OSD epoch 0 (1970) is an unknown-time placeholder; absolute-time views are not recording dates \n\
+ Original samples {1}..{2} of {3}; source REC frames {4}..{5}; Present probes {6}. Other probes absent, no replacement points \n\
+-All-probes-absent sample ranges: {7}. {8} Frames {9}, empty frames {10}
++All-probes-absent sample ranges: {7}. {8} Frames {9}, empty frames {10}\n\
++Inferred offset of this segment from the first sample group: {11} s. Recording elapsed = offset + segment elapsed.
+ GDE_MSGT4115=none
+ # end GDE_MSGT4199 -> normal text
+\ No newline at end of file
+--- a/Tasi/src/gde/device/tasi/messages_en.properties
++++ b/Tasi/src/gde/device/tasi/messages_en.properties
+@@ -131,7 +131,7 @@
+ # range 0000 to 1000 reserved for base OSDE code 
+ GDE_MSGT4100=Start TA612C live acquisition (available probes are recorded)
+ GDE_MSGT4101=Stop TA612C acquisition / cancel REC download
+-GDE_MSGT4102=TA612C-rec
++GDE_MSGT4102=ta612c-rec
+ GDE_MSGT4103=Download TA612C REC memory... / Cancel REC
+ GDE_MSGT4104=Stop live acquisition before downloading REC memory
+ GDE_MSGT4105=REC download cancelled. Nothing imported
+@@ -147,10 +147,11 @@
+ GDE_MSGT4111=Download REC
+ GDE_MSGT4112=Cancel
+ GDE_MSGT4113=) REC inferred {0}
+-GDE_MSGT4114=TA612C REC v1. INFERRED TIME; absolute recording time UNKNOWN.\n\
+-Interval {0} s supplied by user, NOT read from meter. Elapsed = original zero-based sample index * interval \n\
++GDE_MSGT4114=TA612C REC v2. INFERRED TIME; absolute recording time UNKNOWN.\n\
++Interval {0} s supplied by user, NOT read from meter. Segment elapsed = (original sample index - first index of segment) * interval; each segment starts at zero.\n\
+ OSD epoch 0 (1970) is an unknown-time placeholder; absolute-time views are not recording dates \n\
+ Original samples {1}..{2} of {3}; source REC frames {4}..{5}; Present probes {6}. Other probes absent, no replacement points \n\
+-All-probes-absent sample ranges: {7}. {8} Frames {9}, empty frames {10}
++All-probes-absent sample ranges: {7}. {8} Frames {9}, empty frames {10}\n\
++Inferred offset of this segment from the first sample group: {11} s. Recording elapsed = offset + segment elapsed.
+ GDE_MSGT4115=none
+ # end GDE_MSGT4199 -> normal text
+\ No newline at end of file
+--- a/Tasi/src/gde/device/tasi/messages_de.properties
++++ b/Tasi/src/gde/device/tasi/messages_de.properties
+@@ -131,7 +131,7 @@
+ # range 0000 to 1000 reserved for base OSDE code 
+ GDE_MSGT4100=TA612C-Echtzeit-Erfassung starten (verfügbare Messköpfe werden erfasst)
+ GDE_MSGT4101=TA612C-Erfassung beenden / REC-Download abbrechen
+-GDE_MSGT4102=TA612C-rec
++GDE_MSGT4102=ta612c-rec
+ GDE_MSGT4103=TA612C-REC-Speicher herunterladen... / REC abbrechen
+ GDE_MSGT4104=Live-Erfassung vor dem Herunterladen des REC-Speichers stoppen
+ GDE_MSGT4105=REC-Download abgebrochen. Es wurde nichts importiert
+@@ -147,10 +147,11 @@
+ GDE_MSGT4111=REC Speicherinhalt herunterladen
+ GDE_MSGT4112=Abbrechen
+ GDE_MSGT4113=) REC Speicherinhalt {0}
+-GDE_MSGT4114=TA612C REC Speicher v1. ABGELEITETE ZEIT; Absolute Aufzeichnungszeit UNBEKANNT.\n\
+-Intervall {0} s vom Benutzer angegeben, NICHT vom Messgerät ausgelesen. Verstrichene Zeit = ursprünglicher, nullbasierter Abtastindex * Intervall \n\
++GDE_MSGT4114=TA612C REC Speicher v2. ABGELEITETE ZEIT; Absolute Aufzeichnungszeit UNBEKANNT.\n\
++Intervall {0} s vom Benutzer angegeben, NICHT vom Messgerät ausgelesen. Segmentzeit = (ursprünglicher Abtastindex - erster Abtastindex des Segments) * Intervall; jedes Segment beginnt bei null.\n\
+ Der Zeitstartpunkt 0 (1970) ist ein Platzhalter für eine unbekannte Zeit; Ansichten mit absoluter Zeit geben keine Aufzeichnungsdaten wieder \n\
+ Ursprüngliche Abtastwerte {1}..{2} von {3}; REC-Speichers der Quelle {4}..{5}; Vorhandene Sonden {6}. Andere Sonden fehlen, keine Ersatzpunkte \n\
+-Abtastbereiche, in denen alle Sonden fehlen: {7}. {8} Frames {9}, leere Frames {10}
++Abtastbereiche, in denen alle Sonden fehlen: {7}. {8} Frames {9}, leere Frames {10}\n\
++Abgeleiteter Zeitversatz dieses Segments gegenüber der ersten Messwertgruppe: {11} s. Aufzeichnungszeit = Zeitversatz + Segmentzeit.
+ GDE_MSGT4115=keine
+ # end GDE_MSGT4199 -> normal text
+\ No newline at end of file
