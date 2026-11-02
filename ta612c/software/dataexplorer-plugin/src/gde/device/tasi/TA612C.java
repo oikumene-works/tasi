@@ -233,7 +233,7 @@ public class TA612C extends DeviceConfiguration implements IDevice {
         if (probeMask < 1 || probeMask > 0x0F) throw new IllegalArgumentException("A live segment requires at least one present probe");
         records.setTimeStep_ms(-1);
         records.setStartTimeStamp(firstSampleEpochMs);
-        records.setRecordSetDescription("TA612C live. Time is based on host receipt, starting at the first decoded frame in this acquisition. "
+        records.setRecordSetDescription("TA612C live. Relative time starts at the first decoded frame of this segment. The absolute start uses the acquisition host-receipt anchor plus the monotonic segment offset. "
                 + "Present probes " + TA612CRecImport.probeNames(probeMask) + "; other probes are open and have no replacement points. "
                 + "A probe-availability change starts a new live record set; all-open frames contain no temperature rows.");
         TA612CRecImport.configureMask(records, probeMask);

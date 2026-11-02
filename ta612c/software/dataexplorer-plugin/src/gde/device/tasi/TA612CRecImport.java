@@ -27,6 +27,11 @@ public final class TA612CRecImport {
         }
     }
 
+    /**
+     * Prepare all segments before publication. Each starts at relative zero;
+     * its persisted description retains original indices and inferred offset.
+     * Epoch zero denotes an unknown recording date, never download time.
+     */
     public static List<RecordSet> prepare(TA612C device, TA612CRecDownloader.Result result, long intervalMs, int firstNumber)
             throws DataInconsitsentException {
         if (intervalMs < 1 || intervalMs > 86400000) throw new IllegalArgumentException("Invalid REC interval");
@@ -47,20 +52,23 @@ public final class TA612CRecImport {
                 configureMask(records, mask);
                 records.setTimeStep_ms(-1);
                 records.setStartTimeStamp(0); // Explicit unknown epoch placeholder, never download time.
-                records.setRecordSetDescription("TA612C REC v1. INFERRED TIME; absolute recording time UNKNOWN. "
+                records.setRecordSetDescription("TA612C REC v2. INFERRED TIME; absolute recording time UNKNOWN. "
                         + "Interval " + BigDecimal.valueOf(intervalMs, 3).stripTrailingZeros().toPlainString()
-                        + " s supplied by user, NOT read from meter. elapsed = original zero-based sample index * interval. "
+                        + " s supplied by user, NOT read from meter. Segment elapsed = (original sample index - first index of segment) * interval; each segment starts at zero. "
                         + "OSD epoch 0 (1970) is an unknown-time placeholder; absolute-time views are not recording dates. "
                         + "Original samples " + first + ".." + (end - 1) + " of " + samples.size()
                         + "; source REC frames " + samples.get(first).sourceFrame() + ".." + samples.get(end - 1).sourceFrame()
                         + "; present probes " + probeNames(mask) + ". Other probes absent, no replacement points. "
                         + "All-probes-absent sample ranges: " + absentRanges + ". "
-                        + result.completionDescription() + " Frames " + result.frames() + ", empty frames " + result.emptyFrames() + ".");
+                        + result.completionDescription() + " Frames " + result.frames() + ", empty frames " + result.emptyFrames() + ". "
+                        + "Inferred offset of this segment from the first sample group: "
+                        + BigDecimal.valueOf(first * intervalMs, 3).stripTrailingZeros().toPlainString()
+                        + " s. Recording elapsed = offset + segment elapsed.");
                 for (int i = first; i < end; ++i) {
                     int[] points = new int[Integer.bitCount(mask)];
                     int column = 0;
                     for (int p = 0; p < 4; ++p) if ((mask & (1 << p)) != 0) points[column++] = samples.get(i).point(p);
-                    records.addTimeStep_ms((long) i * intervalMs);
+                    records.addTimeStep_ms((long) (i - first) * intervalMs);
                     records.addNoneCalculationRecordsPoints(points);
                 }
                 device.makeInActiveDisplayable(records);

@@ -7,7 +7,10 @@ opening its dialog after an OSD was opened, table headers could describe the
 wrong probes, and later live segments acquired a drawn line before their first
 stored sample. A later saved-file follow-up reproduced an old curve and selector
 after opening another OSD from Table and returning through the View menu or
-Ctrl+PageUp. These findings remain open; this package contains no fixes.
+Ctrl+PageUp. This historical beta 3 package contains no fixes. The later
+[time-model correction](../2026-11-02-time-model/README.md) explains the leading
+line as a plugin time-origin mismatch and records the software checks of the
+correction. Other beta 3 observations remain evidence about that tested build.
 
 Start with [the findings and reproduction steps](GUI_FINDINGS.md). The
 [source explanations](SOURCE_ANALYSIS.md) are a separate optional annex.

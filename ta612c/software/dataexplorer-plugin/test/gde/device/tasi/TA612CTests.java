@@ -44,6 +44,7 @@ public final class TA612CTests {
             protocolTests();
             lifecycleTests();
             TA612CRecTests.protocol();
+            LiveSegmentTimeTests.protocol();
             System.out.println("PASS: " + assertions + " protocol and lifecycle assertions");
             return;
         }
@@ -136,7 +137,7 @@ public final class TA612CTests {
         check(capture.masks.equals(List.of(15, 13, 0, 5)), "listener receives every probe availability transition");
         check(capture.failure == null, "probe availability changes are not live failures");
         check(capture.times.get(0) == 0.0, "first timestamp is zero");
-        check(capture.times.get(3) >= capture.times.get(0), "host-receive live time continues across probe changes");
+        check(capture.times.stream().allMatch(t -> t == 0.0), "each changed probe mask starts a segment at zero");
 
         port = new FakeTransport(); capture = new Capture();
         run(port, capture);
@@ -307,6 +308,8 @@ public final class TA612CTests {
         expect(IllegalArgumentException.class,
                 () -> TA612C.appendLiveSample(sparseLive, TA612CFrameDecoder.decode(frame(-10, 28000, 28000, 0)), 500.0),
                 "live sample cannot cross a probe-mask segment");
+        RecSegmentTimeTests.integration(device, output);
+        LiveSegmentTimeTests.integration(device, output, jar);
         TA612CRecTests.integration(device, output, xml.getParent().getParent().getParent().resolve("test/fixtures"), jar);
     }
 

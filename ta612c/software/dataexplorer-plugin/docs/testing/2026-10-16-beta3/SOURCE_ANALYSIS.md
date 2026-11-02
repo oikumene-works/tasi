@@ -10,8 +10,10 @@ one, table rows refresh without rebuilding their headers, and curve drawing
 extends the first value to the left boundary before the first stored sample.
 The later saved-file follow-up found that menu/keyboard tab navigation changes
 selection without running the listener that refreshes Graphic.
-The earlier OSD checks established correct stored values and timestamps for the
-affected recordings; the table and curve findings concern their presentation.
+The earlier OSD checks established preservation of stored values and timestamps
+for the affected recordings. That did not establish compliance with the
+per-RecordSet time convention; the correction in the curve section distinguishes
+those claims.
 
 Codex retrieved and examined the source, traced the relevant control flow,
 compared compiled classes with the distributed beta and wrote this analysis.
@@ -165,6 +167,14 @@ explains the observed recovery on reopening without any change to stored data.
 
 ## Curve drawing adds a line before the first stored sample
 
+**Correction, 2026-11-02:** Codex's earlier interpretation that a new segment
+could legitimately begin at a positive relative time was incorrect. DataExplorer
+expects each RecordSet's first sample at relative zero and its absolute epoch
+at that sample's start. The drawing trace below describes the observed output,
+but does not establish a core defect: the plugin supplied a shared acquisition
+origin instead of a segment origin. See the [time-model correction](../2026-11-02-time-model/README.md).
+The original recordings and runtime observations have not been altered.
+
 **Observed behavior.** After T4 removal and return, the second and third live
 segments begin at 21.4947 s and 35.3271 s in their stored data, but their graphs
 extend the first value back to zero. After removing all probes and reconnecting
@@ -198,11 +208,12 @@ For the T3 example, those endpoints represent `(0 s, 22.6 C)` and
 not inserted into the recording. The line can overlap the lower plot border,
 as in the retained screenshot.
 
-The plugin preserves acquisition-relative elapsed times across segments
-(`TA612C.java`, lines 312–340), so a later segment legitimately starts
-after zero. The generic core drawing path assumes a value is available at the
-left boundary. That combination explains the display extension. This analysis
-does not establish behavior in zoom, scope, comparison or GPS views.
+The plugin preserved acquisition-relative elapsed times across segments
+(`TA612C.java`, lines 312–340), so a later segment started after zero. That
+violated the per-RecordSet time convention, as clarified above. The generic core
+drawing path assumed a value was available at the left boundary. This explains
+the display extension without establishing a core bug. This analysis does not
+establish behavior in zoom, scope, comparison or GPS views.
 
 ## Menu and keyboard tab navigation leave the previous Graphic cache visible
 
