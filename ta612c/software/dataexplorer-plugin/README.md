@@ -1,5 +1,12 @@
 # TA612C for DataExplorer 4.0.7
 
+**For the officially integrated plugin, use DataExplorer 4.0.8 from the
+[upstream downloads](https://www.nongnu.org/dataexplorer/download.html).**
+Read the [release and OSD compatibility note](docs/DATAEXPLORER_4.0.8.md)
+before opening earlier experimental recordings. The descriptions and build
+instructions below concern this repository's standalone 4.0.7 module;
+they do not describe the newer four-column storage used in the integration.
+
 Standalone TASI TA612C plugin: four-input live acquisition, download of existing
 internal REC memory, and native OSD saving/restoration. No upstream core, other
 plugin or master-build changes are required. Code and tests use the bundled
