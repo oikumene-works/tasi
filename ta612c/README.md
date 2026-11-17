@@ -4,6 +4,12 @@ Open research, software and integration work for the TASI TA612C four-channel th
 
 ## Current state
 
+**TA612C support is included in the official DataExplorer 4.0.8 release.**
+The [release and OSD compatibility note](software/dataexplorer-plugin/docs/DATAEXPLORER_4.0.8.md),
+prepared by Codex, links the official download and explains the change from
+the earlier experimental storage format. The standalone 4.0.7 source below
+remains a separate implementation.
+
 The [2026-10-16 DataExplorer 4.0.8 beta 3 test report](software/dataexplorer-plugin/docs/testing/2026-10-16-beta3/README.md)
 includes physical test results, three GUI reproductions, downloadable evidence
 and a separate source-analysis annex.

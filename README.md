@@ -10,6 +10,13 @@ This repository is organized by device model. Shared vendor context can stay tog
 
 Four-channel thermocouple thermometer.
 
+**DataExplorer 4.0.8 includes the TASI TA612C plugin in its official release.**
+Use the [DataExplorer downloads](https://www.nongnu.org/dataexplorer/download.html)
+for the integrated application. See the
+[release and OSD compatibility note](ta612c/software/dataexplorer-plugin/docs/DATAEXPLORER_4.0.8.md)
+prepared by Codex, including the distinction from this repository's standalone
+4.0.7 module and its earlier recordings.
+
 Current work includes:
 
 - USB/serial protocol research
